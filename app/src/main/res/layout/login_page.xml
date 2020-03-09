@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Loginpage">
+
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mobile_background">
+
+    <ImageView
+        android:id="@+id/background_img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:background="@drawable/new_otp_background_first" />
+
+    <EditText
+        android:layout_below="@id/background_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/edt"
+        android:padding="@dimen/_15sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:hint="Enter your mobile number"
+        android:background="@drawable/new_otp_background_2"
+        android:alpha="0.50"
+        android:fontFamily="@font/montserrat_medium"
+        android:maxLines="1"
+        android:inputType="number"
+        />
+
+    <Button
+        android:layout_width="@dimen/_165sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:text="Get OTP"
+        android:id="@+id/getotpbtn"
+        android:layout_below="@id/edt"
+        android:layout_marginTop="30dip"
+        android:background="@drawable/otp_bg_btn"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/montserrat_bold"
+
+        />
+
+
+</RelativeLayout>
+
+</RelativeLayout>

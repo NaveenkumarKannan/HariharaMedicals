@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10sdp">
+        <ImageView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:id="@+id/medicine_img"
+            android:background="#3344ff"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tablename"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:id="@+id/medicine_name"
+            android:layout_toRightOf="@id/medicine_img"
+            android:layout_marginLeft="@dimen/_10sdp"
+            />
+            <TextView
+                android:id="@+id/medicine_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/medicine_img"
+                android:layout_below="@id/medicine_name"
+                android:layout_marginLeft="@dimen/_40sdp"/>
+
+            <EditText
+                android:id="@+id/medicine_count"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/medicine_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/_55sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:textAlignment="center"
+                android:layout_toRightOf="@id/medicine_img"
+                android:inputType="number"
+                android:hint="0" />
+            <TextView
+                android:id="@+id/medicine_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/medicine_count"
+                android:layout_below="@id/medicine_name"
+                android:layout_marginLeft="@dimen/_10sdp"/>
+            <TextView
+                android:id="@+id/medicine_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="70/RS"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/medicine_img"
+                android:layout_below="@id/medicine_count"
+                android:layout_marginLeft="@dimen/_10sdp"/>
+            <Button
+                android:id="@+id/medicine_add_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/medicine_price"
+                android:layout_below="@id/medicine_count"
+                android:layout_marginLeft="@dimen/_70sdp"
+                android:textColor="#3377ff"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/medicine_info"
+                android:drawableRight="@drawable/ic_info_outline_black_24dp"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/dialog_bg1"
+    android:layout_height="@dimen/_250sdp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@drawable/dialog_bg2"
+        android:id="@+id/dialog_layout1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hi, User"
+            android:textColor="@color/colorwhite"
+            android:fontFamily="@font/montserrat_bold"
+            android:padding="@dimen/_15sdp"
+            android:textSize="@dimen/_15sdp"
+            />
+        <TextView
+            android:id="@+id/appointment_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Done"
+            android:textColor="@color/colorwhite"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="@dimen/_15sdp"
+            android:padding="@dimen/_15sdp"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Doctor Will Be Confirm Soon...."
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="@dimen/_15sdp"
+        android:layout_below="@id/dialog_layout1"
+        android:padding="@dimen/_10sdp"/>
+
+</RelativeLayout>

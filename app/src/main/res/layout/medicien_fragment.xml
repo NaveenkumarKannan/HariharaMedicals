@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Medicine.Medicine">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp"
+        android:background="#3377ff"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/product_search"
+        android:layout_marginHorizontal="@dimen/_50sdp"
+        android:background="@drawable/edt_bg"
+        android:padding="@dimen/_10sdp"
+        android:hint="Croin"
+        android:maxLines="1"
+        android:drawableLeft="@drawable/ic_search_black_24dp"
+        android:layout_marginTop="@dimen/_90sdp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/medicine_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/product_search"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:scrollbars="vertical">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

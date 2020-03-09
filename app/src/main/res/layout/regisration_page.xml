@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    tools:context=".regisration_page">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@drawable/specific_bottom"
+            android:id="@+id/regisration_img"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/colorwhite"
+            android:textSize="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:padding="@dimen/_10sdp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/regisration_img">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/regs_firstname"
+            android:paddingLeft="@dimen/_25sdp"
+
+            android:maxLines="1"
+            android:inputType="text"
+
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:hint="First name"
+
+            />
+            <EditText
+                android:layout_below="@id/regs_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/regs_lastname"
+                android:paddingLeft="@dimen/_25sdp"
+
+                android:inputType="text"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:hint="last name"
+                android:maxLines="1"
+                />
+        <EditText
+            android:layout_below="@id/regs_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/regs_dob"
+            android:paddingLeft="@dimen/_25sdp"
+            android:clickable="true"
+            android:focusable="false"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:hint="dd-mm-yy"
+            android:inputType="number"
+            android:maxLines="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/regs_gender"
+            android:layout_below="@id/regs_dob"
+            android:text="Gender"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_marginLeft="@dimen/_30sdp"/>
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@+id/regs_gender"
+                android:layout_below="@id/regs_dob"
+                android:layout_marginLeft="@dimen/_5sdp"
+                >
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/regs_male_radio"
+
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Male"
+            android:textSize="@dimen/_12sdp"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/regs_female_radio"
+            android:layout_toRightOf="@+id/regs_male_radio"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_below="@id/regs_dob"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:text="Female"
+            android:textSize="@dimen/_12sdp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/regs_others_radio"
+                android:layout_toRightOf="@id/regs_female_radio"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_below="@id/regs_dob"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:text="Others"
+                android:textSize="@dimen/_12sdp"/>
+            </RadioGroup>
+
+        <EditText
+            android:layout_below="@id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/regs_email"
+            android:paddingLeft="@dimen/_25sdp"
+
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="E-mail"
+            android:maxLines="1"
+            android:lines="1"
+            android:inputType="textEmailAddress"
+            />
+
+            <EditText
+                android:id="@+id/regs_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/regs_email"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+
+                android:fontFamily="@font/montserrat_medium"
+                android:hint="Address"
+                android:inputType="text"
+                android:paddingLeft="@dimen/_25sdp"
+                android:maxLines="1"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lay1"
+                android:layout_below="@id/regs_address">
+            <EditText
+            android:layout_below="@id/regs_address"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:id="@+id/regs_height"
+            android:hint="Height"
+            android:inputType="number"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:maxLines="1"
+            />
+        <EditText
+            android:layout_below="@id/regs_address"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:id="@+id/regs_weight"
+            android:hint="Weight"
+            android:inputType="number"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_toRightOf="@id/regs_height"
+            android:maxLines="1"
+            />
+            <EditText
+                android:layout_below="@id/regs_address"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"
+                android:id="@+id/regs_bp"
+                android:hint="BP"
+                android:inputType="number"
+                android:fontFamily="@font/montserrat_medium"
+                android:maxLines="1"
+                />
+            <EditText
+                android:layout_below="@id/regs_address"
+                android:layout_width="@dimen/_95sdp"
+                android:layout_height="wrap_content"
+                android:id="@+id/regs_sugar"
+                android:hint="Sugar"
+                android:inputType="number"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_toRightOf="@id/regs_height"
+                android:maxLines="1"
+                />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/regs_doctor_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lay1"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:fontFamily="@font/montserrat_medium"
+                android:hint="Preferred doctor name"
+                android:paddingLeft="@dimen/_25sdp"
+                android:inputType="text"
+                android:maxLines="1"/>
+
+            <ImageView
+                android:id="@+id/regs_upload"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_below="@id/regs_doctor_name"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/upload_pic"
+                android:visibility="visible"/>
+            <ImageView
+                android:id="@+id/regs_profile"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_below="@id/regs_doctor_name"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/upload_pic"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/regs_doctor_name"
+                android:text="Upload your profile picture"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_toRightOf="@id/regs_upload"
+                android:textSize="@dimen/_15sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                />
+
+            <Button
+                android:layout_width="@dimen/_165sdp"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:id="@+id/regs_btn_register"
+                android:layout_below="@id/regs_upload"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/otp_bg_btn"
+               android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:fontFamily="@font/montserrat_bold"
+                />
+
+
+    </RelativeLayout>
+</ScrollView>
+</RelativeLayout>

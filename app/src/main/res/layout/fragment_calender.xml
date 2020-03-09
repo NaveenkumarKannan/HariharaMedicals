@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/text_dashboard">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_270sdp"
+        android:id="@+id/calendar_layout1">
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_270sdp">
+
+        <CalendarView
+            android:layout_marginTop="@dimen/_2sdp"
+            android:id="@+id/calender_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_270sdp"
+            >
+        </CalendarView>
+
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/calendar_layout1"
+                android:padding="@dimen/_10sdp">
+        <TextView
+            android:id="@+id/remainder"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:text="REMAINDER"
+            android:textSize="@dimen/_15sdp"
+
+            android:background="@drawable/calendar_remainder"
+            android:padding="@dimen/_10sdp"
+            android:textAlignment="center" />
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/remainder">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/reminder_recy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    ></androidx.recyclerview.widget.RecyclerView>
+
+            </RelativeLayout>
+                </ScrollView>
+        </RelativeLayout>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/_20sdp"
+        android:id="@+id/calendar_remainder"
+        app:srcCompat="@drawable/ic_add_black_24dp"
+        app:backgroundTint="#1B1464"
+        />
+
+</RelativeLayout>

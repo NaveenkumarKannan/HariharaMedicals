@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="#808080"
+        android:id="@+id/cart_nav"/>
+    <TextView
+        android:id="@+id/cart_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Items"
+        android:textColor="#1B1464"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="@dimen/_22sdp"
+        android:layout_below="@id/cart_nav"
+        android:layout_marginLeft="@dimen/_10sdp"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_below="@id/cart_item">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10sdp">
+            <ImageView
+                android:id="@+id/cart_img"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:background="#1B1464"/>
+            <TextView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:text="Tablet Advance"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
+                android:id="@+id/cart_name"
+                android:layout_toRightOf="@id/cart_img"
+                android:layout_marginLeft="@dimen/_10sdp"/>
+
+            <TextView
+                android:id="@+id/cart_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cart_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_toRightOf="@id/cart_img"
+                android:paddingLeft="@dimen/_10sdp"
+                android:text="20"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs-40.00"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
+                android:id="@+id/cart_price"
+                android:layout_toRightOf="@id/cart_count"
+                android:layout_below="@id/cart_name"
+                android:layout_marginLeft="@dimen/_40sdp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:paddingLeft="@dimen/_10sdp"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:id="@+id/cart_remove"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_toRightOf="@id/cart_img"
+                android:layout_below="@id/cart_count"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textColor="#1B1464"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/cart_pricedetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price Details"
+        android:textColor="#1B1464"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_200sdp"
+        android:layout_marginLeft="@dimen/_10sdp"/>
+
+    <EditText
+        android:id="@+id/cart_detail_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_below="@id/cart_pricedetails"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:maxLines="1"
+
+        android:hint="price Detsils                        Rs:40.00"
+        android:padding="@dimen/_10sdp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total                              Rs:40.00"
+        android:id="@+id/cart_total"
+        android:padding="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textSize="@dimen/_15sdp"
+        android:fontFamily="@font/montserrat_bold"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:maxLines="1"
+
+        android:layout_below="@id/cart_detail_price"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place Order"
+        android:id="@+id/cart_btn"
+        android:layout_below="@id/cart_total"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:paddingRight="@dimen/_40sdp"
+        android:paddingLeft="@dimen/_40sdp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/colorwhite"
+        android:background="@drawable/otp_bg_btn"/>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

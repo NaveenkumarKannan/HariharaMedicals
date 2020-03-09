@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Startpage"
+    android:background="#ffffff">
+
+    <ImageView
+        android:layout_width="@dimen/_170sdp"
+        android:layout_height="@dimen/_170sdp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/harihara_new_logo">
+    </ImageView>
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/poweredby_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Powered by"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="@dimen/_55sdp"
+        android:textStyle="normal"
+        android:fontFamily="@font/montserrat_medium"
+        android:textSize="@dimen/_20sdp"
+        android:alpha="0.50"
+        />
+
+
+    <ImageView
+        android:id="@+id/above_whiteline"
+        android:layout_width="@dimen/_74sdp"
+        android:layout_height="@dimen/_10sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_43sdp"
+        android:alpha="0.70"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@drawable/radssoon_line" />
+
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/radssoon_symbol"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_width="@dimen/_67sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_centerHorizontal="true"
+        android:alpha="0.70"
+        android:src="@drawable/radssoon_r_black" />
+
+
+    <ImageView
+        android:layout_marginHorizontal="@dimen/_120sdp"
+        android:id="@+id/below_whiteline"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="@dimen/_74sdp"
+        android:layout_height="@dimen/_10sdp"
+        android:src="@drawable/radssoon_line"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:alpha="0.70"/>
+
+</RelativeLayout>

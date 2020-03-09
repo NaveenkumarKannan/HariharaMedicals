@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "436528640318",
+    "firebase_url": "https://hariharamedicals-bdeed.firebaseio.com",
+    "project_id": "hariharamedicals-bdeed",
+    "storage_bucket": "hariharamedicals-bdeed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436528640318:android:6ea7cb2189e6fd696cbc6f",
+        "android_client_info": {
+          "package_name": "com.example.harihara_medicals"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436528640318-c3ddfkrkqp0ll3mcv149boaj86350j72.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.harihara_medicals",
+            "certificate_hash": "a8c2271be62884885e54ef67fe65b219dccfb84b"
+          }
+        },
+        {
+          "client_id": "436528640318-r5k1mttbcnjen99i2qgil3fe9na2cpk1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBppvg4BiL9NXy-gOP78UEmAO3qqdmjp8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436528640318-r5k1mttbcnjen99i2qgil3fe9na2cpk1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

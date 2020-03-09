@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Harihara medicals</string>
+    <string name="title_home">Home</string>
+    <string name="title_calender">Calender</string>
+    <string name="title_book_Dr">Book Doctor</string>
+    <string name="title_medicien">product</string>
+    <string name="title_activity_home_page">home page</string>
+    <string name="title_appointment">My Appoinment</string>
+    <string name="title_order">My Order</string>
+    <string name="title_remainder">Remainder</string>
+    <string name="title_medical_records">My Records</string>
+    <string name="title_log_out">Logout</string>
+    <string name="title_medicine">Medicine</string>
+    <string name="title_user">User</string>
+    <string name="title_language">My Language</string>
+    <string name="title_English">English</string>
+    <string name="title_Kannada">ಕನ್ನಡ</string>
+    <string name="title_About">About Harihara Medicals</string>
+    <string name="title_Feedback">Feedback</string>
+    <string name="search_doctors">Search for doctor,specialist</string>
+    <string name="title_search_doctors">Search doctors</string>
+    <string name="title_description">Search by directly typing the doctors name,spcialty,ect you can also search by health concerns listed below</string>
+    <string name="title_your_health">Your Health</string>
+    <string name="title_bmi">BMI</string>
+    <string name="title_blood">blood pressure</string>
+    <string name="title_sugar">sugar level</string>
+    <string name="title_live_char">live chat</string>
+    <string name="title_general_doctor">general doctor</string>
+    <string name="title_skin">skin/hair</string>
+    <string name="title_child">child care</string>
+    <string name="title_women">womens health</string>
+    <string name="title_homeopathy">homeopathy</string>
+    <string name="title_ayurveda">ayurveda</string>
+    <string name="title_search_medicine">Search  Medicine/ Health Care</string>
+    <string name="title_medicine_des">Search the medicine that you want from the list of thousands of medicines available in Harihara Medicals</string>
+    <string name="title_health">health/wealth</string>
+    <string name="title_cosmetics">cosmetics</string>
+    <string name="title_surgical">surgical item</string>
+    <string name="title_veterinary">veterinary</string>
+    <string name="title_invite">Invite</string>
+    <string name="title_visit">Did You Visit Doctor?</string>
+    <string name="title_my_order">List of My orders</string>
+    <string name="title_orders">Orders</string>
+    <string name="title_order_ready">Order Ready</string>
+    <string name="title_order_complete">Order Complete</string>
+    <string name="what_s_on_your_mind">Enter your query</string>
+    <string name="menu_refresh">Refresh</string>
+
+</resources>

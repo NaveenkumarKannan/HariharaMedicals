@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.user.UserFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_30sdp"
+        android:id="@+id/user_layout1">
+        <ImageView
+            android:id="@+id/user_img"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@drawable/img_list" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="USER"
+            android:textSize="@dimen/_20sdp"
+            android:layout_toRightOf="@id/user_img"
+            android:paddingLeft="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_bold"
+            android:id="@+id/user_name"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1234567890"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:paddingLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@id/user_img"
+            android:layout_below="@id/user_name"
+            android:id="@+id/user_num"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Details"
+            android:textColor="#1B1464"
+            android:textSize="@dimen/_15sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@id/user_img"
+            android:textStyle="bold"
+            android:layout_below="@id/user_num"
+            android:id="@+id/user_edit"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/user_layout1"
+        android:padding="@dimen/_10sdp">
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/records"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/icon_record"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_medical_records"
+            android:textSize="@dimen/_15sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@id/icon_record"
+            android:fontFamily="@font/montserrat_medium"
+            android:id="@+id/user_record"
+            android:padding="@dimen/_15sdp"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/language"
+            android:layout_below="@id/icon_record"
+            android:id="@+id/icon_language"
+            android:layout_marginTop="@dimen/_25sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_language"
+            android:layout_toRightOf="@id/icon_language"
+            android:textSize="@dimen/_15sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_medium"
+            android:padding="@dimen/_15sdp"
+            android:id="@+id/user_language"
+            android:layout_below="@id/user_record"/>
+
+
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/invite"
+            android:layout_below="@id/icon_language"
+            android:id="@+id/icon_invite"
+            android:layout_marginTop="@dimen/_30sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_invite"
+            android:textSize="@dimen/_15sdp"
+            android:layout_toRightOf="@id/icon_invite"
+            android:paddingLeft="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_medium"
+            android:padding="@dimen/_15sdp"
+            android:id="@+id/user_invite"
+            android:layout_below="@id/user_language"/>
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/logout"
+            android:layout_below="@id/icon_invite"
+            android:id="@+id/icon_logout"
+            android:layout_marginTop="@dimen/_25sdp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_log_out"
+            android:textSize="@dimen/_15sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_medium"
+            android:padding="@dimen/_15sdp"
+            android:id="@+id/user_logout"
+            android:layout_toRightOf="@id/icon_logout"
+            android:layout_below="@+id/user_invite"/>
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/about"
+            android:layout_below="@id/icon_logout"
+            android:id="@+id/icon_about"
+            android:layout_marginTop="@dimen/_25sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_About"
+            android:textSize="@dimen/_15sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@id/icon_about"
+            android:fontFamily="@font/montserrat_medium"
+            android:id="@+id/user_about"
+            android:padding="@dimen/_15sdp"
+            android:layout_below="@id/user_logout"/>
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/feedback"
+            android:layout_below="@id/icon_about"
+            android:id="@+id/icon_feedback"
+            android:layout_marginTop="@dimen/_30sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_Feedback"
+            android:id="@+id/user_feedback"
+            android:textSize="@dimen/_15sdp"
+            android:layout_below="@id/user_about"
+            android:layout_toRightOf="@id/icon_feedback"
+            android:padding="@dimen/_15sdp"
+
+            android:fontFamily="@font/montserrat_medium"
+            />
+
+
+    </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ಹರಿಹರಾ ವೈದ್ಯಕೀಯ</string>
+    <string name="title_home">ಮನೆ</string>
+    <string name="title_calender">ಕ್ಯಾಲೆಂಡರ್</string>
+    <string name="title_book_Dr">ಪುಸ್ತಕ ಡಾ</string>
+    <string name="title_medicien">ವೈದ್ಯ</string>
+    <string name="title_activity_home_page">home page</string>
+    <string name="title_appointment">ನನ್ನ ನೇಮಕಾತಿ</string>
+    <string name="title_order">ನನ್ನ ಆದೇಶ</string>
+    <string name="title_remainder">ಉಳಿದ</string>
+    <string name="title_medical_records">ನನ್ನ ದಾಖಲೆಗಳು</string>
+    <string name="title_log_out">ಲಾಗ್ ಔಟ್</string>
+    <string name="title_medicine">ವೈದ್ಯ</string>
+    <string name="title_user">ಬಳಕೆದಾರ</string>
+    <string name="title_language">ನನ್ನ ಭಾಷೆ </string>
+    <string name="title_English">English</string>
+    <string name="title_Kannada">ಕನ್ನಡ</string>
+    <string name="title_About">ಹರಿಹರ ವೈದ್ಯಕೀಯಗಳ ಬಗ್ಗೆ</string>
+    <string name="title_Feedback">ಪ್ರತಿಕ್ರಿಯೆ</string>
+    <string name="search_doctors">ವೈದ್ಯ, ತಜ್ಞರಿಗಾಗಿ ಹುಡುಕಾಟ</string>
+    <string name="title_search_doctors">ಶೋಧ ವೈದ್ಯರು</string>
+    <string name="title_description">ವೈದ್ಯರ ಹೆಸರು, ಸ್ಪೆಷಾಲಿಟಿ, ಇಕ್ಟ್ ಅನ್ನು ನೇರವಾಗಿ ಟೈಪ್ ಮಾಡುವ ಮೂಲಕ ಹುಡುಕಿ</string>
+    <string name="title_your_health"> ನಿಮ್ಮ ಆರೋಗ್ಯ</string>
+    <string name="title_bmi">ಬಿಎಂಐ</string>
+    <string name="title_blood">ರಕ್ತದೊತ್ತಡ</string>
+    <string name="title_sugar">ಸಕ್ಕರೆ ಮಟ್ಟ</string>
+    <string name="title_live_char">ಲೈವ್ ಚಾಟ್</string>
+    <string name="title_general_doctor">ಸಾಮಾನ್ಯ ವೈದ್ಯರು</string>
+    <string name="title_skin">ಚರ್ಮ / ಕೂದಲು</string>
+    <string name="title_child">ಮಕ್ಕಳ ಆರೈಕೆ</string>
+    <string name="title_women">ಮಹಿಳಾ ಆರೋಗ್ಯ</string>
+    <string name="title_homeopathy">ಹೋಮಿಯೋಪತಿ</string>
+    <string name="title_ayurveda">ಆಯುರ್ವೇದ</string>
+    <string name="title_search_medicine">ಸರ್ಚ್ ಮೆಡಿಸಿನ್ / ಹೆಲ್ತ್ ಕೇರ್</string>
+    <string name="title_medicine_des">ನಿಮ್ಮ ಬಳಿಯ pharma ಷಧಾಲಯದಲ್ಲಿ ಲಭ್ಯವಿರುವ ಸಾವಿರಾರು ವೈದ್ಯರ ಪಟ್ಟಿಯನ್ನು ರೂಪಿಸಲು ನೀವು ಬಯಸುವ .ಷಧ ಷಧಿಯನ್ನು ಸೆರಾರ್ಚ್ ಮಾಡಿ</string>
+    <string name="title_health">ಆರೋಗ್ಯ / ಸಂಪತ್ತು</string>
+    <string name="title_cosmetics">ಸೌಂದರ್ಯವರ್ಧಕಗಳು</string>
+    <string name="title_surgical">ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಯ ವಸ್ತು</string>
+    <string name="title_veterinary">ಪಶುವೈದ್ಯಕೀಯ</string>
+    <string name="title_invite">ಆಹ್ವಾನಿಸಿ</string>
+    <string name="title_visit">ನೀವು ವೈದ್ಯರನ್ನು ಭೇಟಿ ಮಾಡಿದ್ದೀರಾ?</string>
+    <string name="title_my_order">ನನ್ನ ಆದೇಶಗಳ ಪಟ್ಟಿ</string>
+    <string name="title_orders">ಆದೇಶಗಳು</string>
+    <string name="title_order_ready">ಆದೇಶ ಸಿದ್ಧವಾಗಿದೆ</string>
+    <string name="title_order_complete">ಆದೇಶ ಪೂರ್ಣಗೊಂಡಿದೆ</string>
+    <string name="what_s_on_your_mind">Enter your query</string>
+    <string name="menu_refresh">Refresh</string>
+
+
+
+</resources>

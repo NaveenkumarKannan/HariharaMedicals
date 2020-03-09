@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bg1"
+    android:id="@+id/home_dialog">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@drawable/dialog_bg2"
+        android:id="@+id/home_dailog_layout1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="upload your Prescription"
+            android:textColor="@color/colorwhite"
+            android:fontFamily="@font/montserrat_bold"
+            android:padding="@dimen/_15sdp"
+            android:textSize="@dimen/_15sdp"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home_dailog_layout1">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/home_dialog_drname"
+            android:paddingLeft="@dimen/_25sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_14sdp"
+            android:inputType="text"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:hint="Doctor name"
+            android:maxLines="1"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/home_dialog_visitdate"
+            android:layout_below="@id/home_dialog_drname"
+            android:paddingLeft="@dimen/_25sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_14sdp"
+            android:inputType="text"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:hint="Date of Visit"
+            android:maxLines="1"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/home_dialog_place"
+            android:layout_below="@id/home_dialog_visitdate"
+            android:paddingLeft="@dimen/_25sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_14sdp"
+            android:inputType="text"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:hint="Place"
+            android:maxLines="1"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/home_dialog_details"
+            android:layout_below="@id/home_dialog_place"
+            android:paddingLeft="@dimen/_25sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_14sdp"
+            android:inputType="text"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:hint="Purpose od visit"
+            android:maxLines="1"
+            />
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:id="@+id/upload"
+            android:layout_below="@id/home_dialog_details"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/upload_pic"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/home_dialog_details"
+            android:text="Upload your Prescription"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_toRightOf="@id/upload"
+            android:textSize="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            />
+
+        <Button
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="Upload"
+            android:id="@+id/home_dialog_upload"
+            android:layout_below="@id/upload"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/otp_bg_btn"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/montserrat_bold"
+            />
+        <Button
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="Cancel"
+            android:id="@+id/home_dialog_cancel"
+            android:layout_below="@id/upload"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/new_btn_background"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/montserrat_bold"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

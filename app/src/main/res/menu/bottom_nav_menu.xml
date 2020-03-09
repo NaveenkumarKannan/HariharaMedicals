@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_calender"
+        android:icon="@drawable/ic_date_range_black_24dp"
+        android:title="@string/title_calender" />
+
+    <item
+        android:id="@+id/navigation_book_dr"
+        android:icon="@drawable/ic_favorite_black_24dp"
+        android:title="@string/title_book_Dr" />
+    <item
+        android:id="@+id/navigation_medicine"
+        android:icon="@drawable/ic_add_circle_black_24dp"
+        android:title="@string/title_medicine" />
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:title="@string/title_user"/>
+
+</menu>

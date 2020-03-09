@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Medicine.Order">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_20sdp">
+        <View
+            android:layout_width="@dimen/_255sdp"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:background="#808080"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_20sdp">
+        <TextView
+            android:id="@+id/timeline1"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/timeline"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/_17sdp"
+            android:fontFamily="@font/montserrat_bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13sdp"
+            android:id="@+id/timeline_text1"
+            android:text="SHIPPING"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="#1B1464"
+            android:textStyle="bold"
+            android:layout_below="@id/timeline1"/>
+        <TextView
+            android:id="@+id/timeline2"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/timeline"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/_17sdp"
+            android:layout_marginLeft="@dimen/_85sdp"
+            android:fontFamily="@font/montserrat_bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/timeline_text2"
+            android:text="PAYMENT"
+            android:textColor="#1B1464"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/timeline_text1"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_below="@id/timeline1"/>
+        <TextView
+            android:id="@+id/timeline3"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/timeline"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/_17sdp"
+            android:layout_marginLeft="@dimen/_170sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/timeline_text3"
+            android:text="ORDER"
+            android:textColor="#1B1464"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/timeline_text2"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_below="@id/timeline1"
+            android:fontFamily="@font/montserrat_bold"/>
+
+        <TextView
+            android:id="@+id/timeline4"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/_255sdp"
+            android:layout_marginTop="@dimen/_17sdp"
+            android:background="@drawable/timeline_white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/timeline_text4"
+            android:text="DELIVERY"
+            android:textColor="#1B1464"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/timeline_text3"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_below="@id/timeline1"
+            android:fontFamily="@font/montserrat_bold"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:padding="@dimen/_10sdp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:id="@+id/address_card_view1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shipping Address"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="#1B1464"
+                    android:id="@+id/address_address"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jane Doe"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="#000000"
+                    android:layout_below="@id/address_address"
+                    android:id="@+id/address_name"/>
+                <TextView
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="wrap_content"
+                    android:text="aaa bbb ccc sss eeee rrrr hjjhgh bjhh jhvh jhbjhi 22222"
+                    android:textSize="@dimen/_11sdp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_below="@id/address_name"
+                    android:id="@+id/address_stree"/>
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_220sdp"
+        android:padding="@dimen/_10sdp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/order_card_view"
+            android:layout_margin="@dimen/_5sdp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PAYMENT DETAILS"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="#1B1464"
+                    android:id="@+id/order_details"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="xxxx-xxxx-xxxx-1234"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_below="@id/order_details"
+                    android:id="@+id/order_card"/>
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_320sdp"
+        android:padding="@dimen/_10sdp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/order_card_view2"
+            android:layout_margin="@dimen/_5sdp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ORDER"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="#1B1464"
+                    android:id="@+id/order_item_details"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1  item"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:padding="@dimen/_3sdp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_below="@id/order_item_details"
+                    android:id="@+id/order_item"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="crocin pain relife"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_below="@id/order_item"
+                    android:id="@+id/order_item_name"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_17sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_below="@id/order_item_name"
+                    android:id="@+id/order_item_total"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="120.00"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_17sdp"
+                    android:textColor="#000000"
+                    android:padding="@dimen/_10sdp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_marginLeft="@dimen/_190sdp"
+                    android:layout_below="@id/order_item_name"
+                    android:id="@+id/order_item_amount"/>
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_490sdp"
+        android:padding="@dimen/_10sdp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/order_card_view3"
+            android:layout_margin="@dimen/_5sdp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DELIVERY"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="#1B1464"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:id="@+id/order_delivery"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delivered by"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_below="@id/order_delivery"
+                    android:id="@+id/order_detail_delivery"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="09/01/2020"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_marginLeft="@dimen/_150sdp"
+                    android:layout_below="@id/order_delivery"
+                    android:id="@+id/order_detail_delivery_date"/>
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_15sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:id="@+id/general_dr_img"
+                android:background="@drawable/user"/>
+            <TextView
+                android:id="@+id/general_dr_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dr. Ganesh"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="@dimen/_18sdp"
+                android:layout_marginLeft="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_15sdp"/>
+            <TextView
+                android:id="@+id/general_dr_edu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="General Physician"
+                android:textSize="@dimen/_13sdp"
+                android:fontFamily="@font/montserrat_medium"
+                android:textStyle="bold"
+                android:layout_below="@id/general_dr_name"
+                android:layout_marginLeft="@dimen/_100sdp"/>
+            <TextView
+                android:id="@+id/general_dr_edu1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MD-General Physician"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_below="@id/general_dr_edu"
+                android:layout_marginLeft="@dimen/_100sdp"/>
+            <TextView
+                android:id="@+id/general_dr_fees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs-200"
+                android:fontFamily="@font/montserrat_medium"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_below="@id/general_dr_edu1"
+                android:layout_marginLeft="@dimen/_20sdp"/>
+            <TextView
+                android:id="@+id/general_dr_exp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 yrs of exp."
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/montserrat_medium"
+                android:textStyle="bold"
+                android:layout_below="@id/general_dr_edu1"
+                android:layout_centerInParent="true"/>
+
+            <Button
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:text="Book"
+                android:fontFamily="@font/montserrat_medium"
+                android:id="@+id/general_book_dr"
+                android:layout_below="@id/general_dr_fees"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/colorwhite"
+                android:background="@drawable/btn_bg1"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"/>        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

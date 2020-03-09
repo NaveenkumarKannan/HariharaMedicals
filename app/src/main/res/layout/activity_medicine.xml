@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Medicine.Medicine">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_110sdp"
+        android:background="#808080"
+        />
+    <ImageView
+        android:id="@+id/cart_item"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:visibility="visible"
+        android:src="@drawable/ic_add_shopping_cart_black_24dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        />
+    <TextView
+        android:id="@+id/textOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/cart_item"
+        android:layout_marginLeft="@dimen/_260sdp"
+        android:text="0"
+        android:textColor="#FFF"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:background="@drawable/badge_cricle"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/product_search"
+        android:layout_marginHorizontal="@dimen/_50sdp"
+        android:background="@drawable/edt_bg"
+        android:padding="@dimen/_15sdp"
+        android:hint="Product"
+        android:maxLines="1"
+        android:drawableLeft="@drawable/ic_search_black_24dp"
+        android:layout_marginTop="@dimen/_80sdp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recy"
+        android:layout_below="@id/product_search"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:scrollbars="vertical">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

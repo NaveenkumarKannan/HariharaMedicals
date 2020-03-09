@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.harihara_medicals">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.camera.ar"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        >
+        <activity android:name=".chatbot.LiveChatBot"
+            android:screenOrientation="fullSensor">
+
+        </activity>
+        <activity android:name=".About_Harihar" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.harihara_medicals"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path"
+                tools:replace="android:resource"/>
+        </provider>
+
+        <activity android:name=".Ar_product" />
+
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="required" />
+
+        <activity android:name=".Doctor.My_appointment" />
+        <activity android:name=".Medicine.My_order_activity" />
+        <activity android:name=".Doctor.BookAppointment" />
+        <activity android:name=".Doctor.General_doctor" />
+        <activity android:name=".Doctor.Doctor_appoinment" />
+        <activity android:name=".Medicine.orderconformation" />
+        <activity android:name=".Startpage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Edit_details" />
+        <activity android:name=".Medicine.MedicalRecords" />
+        <activity android:name=".Medicine.Order" />
+        <activity android:name=".Medicine.Payment" />
+        <activity android:name=".Medicine.Cartpage" />
+        <activity android:name=".Medicine.Medicine" />
+        <activity
+            android:name=".HomePageActivity"
+            android:label="@string/title_activity_home_page" />
+        <activity android:name=".regisration_page" />
+        <activity android:name=".otp_page" />
+        <activity android:name=".Loginpage" />
+
+    </application>
+
+</manifest>

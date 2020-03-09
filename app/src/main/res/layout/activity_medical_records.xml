@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Medicine.MedicalRecords">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:background="#808080"
+        android:id="@+id/record_img"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medical Records"
+        android:padding="@dimen/_10sdp"
+        android:textColor="@color/colorwhite"
+        android:fontFamily="@font/montserrat_medium"
+        android:textSize="30dip"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MEDICAL RECORDS"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/_20sdp"
+            android:id="@+id/record"/>
+        <TextView
+            android:layout_width="@dimen/_330sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/record"
+            android:text="Keep all your medical documents in one place and stop woorrying about losing then "
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/_15sdp"
+            android:textAlignment="center"
+            android:id="@+id/record_line"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Documents"
+            android:id="@+id/record_upload_btn"
+            android:layout_below="@id/record_line"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:paddingRight="@dimen/_40sdp"
+            android:paddingLeft="@dimen/_40sdp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/colorwhite"
+            android:background="@drawable/otp_bg_btn"/>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

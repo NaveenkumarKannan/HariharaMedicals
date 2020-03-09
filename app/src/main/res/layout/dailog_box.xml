@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/_10sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:background="#1B1464">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Importent"
+                android:textColor="#ffff"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:padding="@dimen/_5sdp"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter at least five fields to complete your profile"
+            android:textSize="@dimen/_15sdp"
+            android:padding="@dimen/_20sdp"/>
+        <Button
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:text="Ok"
+            android:textColor="@color/colorwhite"
+            android:id="@+id/dialog_btn_ok"
+            android:background="@drawable/otp_bg_btn"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_10sdp"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>
