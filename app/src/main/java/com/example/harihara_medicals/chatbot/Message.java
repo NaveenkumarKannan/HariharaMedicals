@@ -1,7 +1,7 @@
 package com.example.harihara_medicals.chatbot;
 
 /**
- * Created by Vidyasagar Machupalli on 17/11/16.
+ * Created by NaveenkumarKannan on 17/11/16.
  */
 
 import com.ibm.watson.assistant.v2.model.RuntimeResponseGeneric;

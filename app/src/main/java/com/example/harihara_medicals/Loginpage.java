@@ -6,10 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.harihara_medicals.utils.SharedPreferencesManager;
+import com.example.harihara_medicals.utils.Util;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -21,17 +24,23 @@ public class Loginpage extends AppCompatActivity {
     private  String verificationcode;
     String phonenumber;*/
     FirebaseUser user;
-    public  static final  String MyPreferences="MyPrefs";
-    public  static final String phone="phonekey";
-    SharedPreferences sharedPreferences;
+
+    private void log(String message) {
+        Log.e(getClass().getSimpleName(), message);
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
-         user=FirebaseAuth.getInstance().getCurrentUser();
-        if(user !=null){
-            startActivity(new Intent(Loginpage.this, HomePageActivity.class));
-            finish();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            if (SharedPreferencesManager.isLoggedIn()) {
+                startActivity(new Intent(Loginpage.this, HomePageActivity.class));
+                finish();
+            } else {
+                startActivity(new Intent(Loginpage.this, regisration_page.class));
+                finish();
+            }
         }
     }
 
@@ -39,28 +48,28 @@ public class Loginpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-        edit_phone=findViewById(R.id.edt);
-        Button getotp=findViewById(R.id.getotpbtn);
-        sharedPreferences=getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
+        edit_phone = findViewById(R.id.edt);
+        Button getotp = findViewById(R.id.getotpbtn);
         getotp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String moblie=edit_phone.getText().toString().trim();
+                String moblie = edit_phone.getText().toString().trim();
 
-                SharedPreferences.Editor editor=sharedPreferences.edit();
-                if(moblie.isEmpty() || moblie.length()<10){
+                if (moblie.isEmpty() || moblie.length() < 10) {
                     edit_phone.setError("enter vaild number");
                     edit_phone.requestFocus();
                     return;
                 }
-                editor.putString(phone,moblie);
-                editor.commit();
-                Intent intent=new Intent(Loginpage.this,otp_page.class);
-                intent.putExtra("mobile",moblie);
+                Intent intent = new Intent(Loginpage.this, otp_page.class);
+                intent.putExtra("mobile", moblie);
                 startActivity(intent);
             }
         });
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Util.onBack(this);
+    }
 }

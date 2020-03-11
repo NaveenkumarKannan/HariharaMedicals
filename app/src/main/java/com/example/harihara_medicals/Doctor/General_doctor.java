@@ -16,7 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.harihara_medicals.Adapters.Doctor_list_adapter;
 import com.example.harihara_medicals.Model.Doctor_list;
 import com.example.harihara_medicals.R;
-import com.example.harihara_medicals.Retrofit.Productapi;
+import com.example.harihara_medicals.Retrofit.ApiUtils;
+import com.example.harihara_medicals.Retrofit.ProductApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,8 +28,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class General_doctor extends AppCompatActivity {
     private Doctor_list_adapter doctor_list_adapter;
@@ -53,16 +52,15 @@ public class General_doctor extends AppCompatActivity {
     }
 
     private void getResponse() {
-
-      Retrofit retrofit = new  Retrofit.Builder()
-                .baseUrl(Productapi.URL)
+        /*Retrofit retrofit = new  Retrofit.Builder()
+                .baseUrl(ProductApi.URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
-        Productapi api =retrofit.create(Productapi.class);
+        ProductApi api =retrofit.create(ProductApi.class);*/
+        //ProductApi api =ApiUtils.getUrl();
+        ProductApi api =ApiUtils.getScalarUrl();
 
-        /*Productapi api =ApiUtils.getUrl();*/
-
-        Call<String> call=api.getDoctors();
+        Call<String> call= api.getDoctors();
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {

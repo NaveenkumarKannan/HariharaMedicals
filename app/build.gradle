@@ -78,8 +78,10 @@ dependencies {
     }
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
-    implementation "org.permissionsdispatcher:permissionsdispatcher:4.6.0"
-    annotationProcessor "org.permissionsdispatcher:permissionsdispatcher-processor:4.6.0"
+    implementation 'com.github.mukeshsolanki:easypermissions-android:2.0.1'
+    implementation 'com.devs:acr:1.0.1'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 
 }
 apply plugin: 'com.google.gms.google-services'

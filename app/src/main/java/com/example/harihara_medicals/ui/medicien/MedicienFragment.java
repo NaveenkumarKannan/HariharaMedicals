@@ -33,10 +33,10 @@ public class MedicienFragment extends Fragment {
 
     /*private void getResponce() {
         Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl(Productapi.URL)
+                .baseUrl(ProductApi.URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
-        Productapi api=retrofit.create(Productapi.class);
+        ProductApi api=retrofit.create(ProductApi.class);
         Call<String> call=api.getMedicen();
         call.enqueue(new Callback<String>() {
             @Override

@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,15 +22,20 @@ import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.harihara_medicals.HomePageActivity;
 import com.example.harihara_medicals.chatbot.LiveChatBot;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Adapters.SliderAdapter;
 import com.example.harihara_medicals.ui.Book_Dr.BookdrFragment;
+import com.example.harihara_medicals.utils.SharedPreferencesManager;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+
+import java.io.File;
 
 public class HomeFragment extends Fragment {
 
@@ -37,7 +43,7 @@ public class HomeFragment extends Fragment {
     SliderView sliderView;
     TextView text1;
     Button btn1,btn2,btn_menu,live_chat;
-    ImageView img1,img2,img3,img4,home_menu;
+    ImageView img1,img2,img3,img4,home_menu,home_user;
     RelativeLayout layout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -57,9 +63,9 @@ public class HomeFragment extends Fragment {
          final SliderAdapter  adapter = new SliderAdapter(root.getContext());
          adapter.setCount(3);
          sliderView.setSliderAdapter(adapter);
-        sliderView.setIndicatorAnimation(IndicatorAnimations.SLIDE); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
-        sliderView.setSliderTransformAnimation(SliderAnimations.CUBEINROTATIONTRANSFORMATION);
-        sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
+        sliderView.setIndicatorAnimation(IndicatorAnimations.DROP); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+        sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_RIGHT);
         sliderView.setIndicatorSelectedColor(Color.WHITE);
         sliderView.setIndicatorUnselectedColor(Color.GRAY);
         sliderView.startAutoCycle();
@@ -71,6 +77,12 @@ public class HomeFragment extends Fragment {
             }
         });
         text1=root.findViewById(R.id.home_doctor_visit);
+        home_user = root.findViewById(R.id.home_user);
+        final String myPhoto = SharedPreferencesManager.getMyPhoto();
+        Glide.with(root.getContext()).load(Uri.fromFile(new File(myPhoto)))
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(home_user);
         home_menu = root.findViewById(R.id.home_menu);
         home_menu.setOnClickListener(new View.OnClickListener() {
             @Override

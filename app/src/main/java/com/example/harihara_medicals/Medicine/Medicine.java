@@ -15,7 +15,7 @@ import com.example.harihara_medicals.Adapters.MedicienAdapter;
 import com.example.harihara_medicals.Model.Medicien_list;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Retrofit.ApiUtils;
-import com.example.harihara_medicals.Retrofit.Productapi;
+import com.example.harihara_medicals.Retrofit.ProductApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,8 +26,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class Medicine extends AppCompatActivity {
     public RecyclerView recyclerView;
@@ -57,12 +55,13 @@ public class Medicine extends AppCompatActivity {
 
     private void fetchJSON() {
 
-        Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl(Productapi.URL)
+        /*Retrofit retrofit = new  Retrofit.Builder()
+                .baseUrl(ProductApi.URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
-        Productapi api=retrofit.create(Productapi.class);
-       /* Productapi api =ApiUtils.getUrl();*/
+        ProductApi api =retrofit.create(ProductApi.class);*/
+        //ProductApi api =ApiUtils.getUrl();
+        ProductApi api =ApiUtils.getScalarUrl();
         Call<String> call=api.getMedicen();
         log("step o");
         call.enqueue(new Callback<String>() {
@@ -134,7 +133,7 @@ public class Medicine extends AppCompatActivity {
     private void sendpost(String pname, String pcount, String price) {
         //Log.e("data_inserted","cart added");
 
-        Call<String> call= ApiUtils.getProductapi().getCart(pname,pcount,price);
+        Call<String> call= ApiUtils.getProductApi().getCart(pname,pcount,price);
         // Log.d("data_failed","nope");
         call.enqueue(new Callback<String>() {
             @Override

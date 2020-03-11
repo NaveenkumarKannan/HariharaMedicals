@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harihara_medicals.Retrofit.ApiUtils;
 import com.example.harihara_medicals.DbHander;
-import com.example.harihara_medicals.Retrofit.Productapi;
+import com.example.harihara_medicals.Retrofit.ProductApi;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Model.Reminder_list;
 import com.example.harihara_medicals.Adapters.Reminder_list_Adaptor;
@@ -44,8 +44,6 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class CalenderFragment extends Fragment {
 
@@ -177,12 +175,13 @@ public class CalenderFragment extends Fragment {
 
 
     private void getResponce() {
-        Retrofit retrofit = new  Retrofit.Builder()
-                .baseUrl(Productapi.URL)
+        /*Retrofit retrofit = new  Retrofit.Builder()
+                .baseUrl(ProductApi.URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
-        Productapi api =retrofit.create(Productapi.class);
-        /*Productapi api =ApiUtils.getProductapi();*/
+        ProductApi api =retrofit.create(ProductApi.class);*/
+        //ProductApi api =ApiUtils.getUrl();
+        ProductApi api =ApiUtils.getScalarUrl();
         Call<String> call=api.getReminders();
         call.enqueue(new Callback<String>() {
             @Override
@@ -250,7 +249,7 @@ public class CalenderFragment extends Fragment {
     }
 
     private void sendpost(String title, String time, String date, String loc, String desc) throws  IOException {
-        Call<Void> call= ApiUtils.getProductapi().getReminder(title, time, date, loc, desc);
+        Call<Void> call= ApiUtils.getProductApi().getReminder(title, time, date, loc, desc);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

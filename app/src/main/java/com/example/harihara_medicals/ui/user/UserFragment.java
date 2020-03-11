@@ -22,6 +22,7 @@ import com.example.harihara_medicals.Loginpage;
 import com.example.harihara_medicals.Medicine.MedicalRecords;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Startpage;
+import com.example.harihara_medicals.utils.SharedPreferencesManager;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
@@ -51,6 +52,7 @@ public class UserFragment extends Fragment {
             public void onClick(View v) {
                 auth=FirebaseAuth.getInstance();
                 auth.signOut();
+                SharedPreferencesManager.logoutUser();
                 startActivity(new Intent(getActivity(), Loginpage.class));
 
             }

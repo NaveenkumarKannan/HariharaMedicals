@@ -1,9 +1,7 @@
 package com.example.harihara_medicals.Medicine;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,13 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harihara_medicals.Adapters.Cart_list_Adapter;
-import com.example.harihara_medicals.Adapters.Doctor_list_adapter;
-import com.example.harihara_medicals.Adapters.MedicienAdapter;
 import com.example.harihara_medicals.Model.Cart_list;
-import com.example.harihara_medicals.Model.Doctor_list;
-import com.example.harihara_medicals.Model.Medicien_list;
 import com.example.harihara_medicals.R;
-import com.example.harihara_medicals.Retrofit.Productapi;
+import com.example.harihara_medicals.Retrofit.ApiUtils;
+import com.example.harihara_medicals.Retrofit.ProductApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,8 +23,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class  Cartpage extends AppCompatActivity {
     TextView cart_tab_name,cart_tab_price,cart_tab_count,cart_detailed_price,cart_total_price;
@@ -49,11 +42,13 @@ public class  Cartpage extends AppCompatActivity {
     }
 
     private void getrespose() {
-        Retrofit retrofit = new  Retrofit.Builder()
-                .baseUrl(Productapi.URL)
+        /*Retrofit retrofit = new  Retrofit.Builder()
+                .baseUrl(ProductApi.URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
-        Productapi api =retrofit.create(Productapi.class);
+        ProductApi api =retrofit.create(ProductApi.class);*/
+        //ProductApi api =ApiUtils.getUrl();
+        ProductApi api = ApiUtils.getScalarUrl();
         Call<String> call=api.getItem();
         call.enqueue(new Callback<String>() {
             @Override

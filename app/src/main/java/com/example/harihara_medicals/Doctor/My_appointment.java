@@ -10,7 +10,8 @@ import android.util.Log;
 import com.example.harihara_medicals.Adapters.My_appoinment_list_adaptor;
 import com.example.harihara_medicals.Model.My_appoinment_list;
 import com.example.harihara_medicals.R;
-import com.example.harihara_medicals.Retrofit.Productapi;
+import com.example.harihara_medicals.Retrofit.ApiUtils;
+import com.example.harihara_medicals.Retrofit.ProductApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,8 +22,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class My_appointment extends AppCompatActivity {
     private My_appoinment_list_adaptor my_appoinment_list_adaptor;
@@ -38,11 +37,13 @@ public class My_appointment extends AppCompatActivity {
     }
 
     private void getResponse() {
-        Retrofit retrofit = new  Retrofit.Builder()
-                .baseUrl(Productapi.URL)
+        /*Retrofit retrofit = new  Retrofit.Builder()
+                .baseUrl(ProductApi.URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
-        Productapi api =retrofit.create(Productapi.class);
+        ProductApi api =retrofit.create(ProductApi.class);*/
+        //ProductApi api =ApiUtils.getUrl();
+        ProductApi api = ApiUtils.getScalarUrl();
 
         Call<String> call = api.getAppoinments();
         call.enqueue(new Callback<String>() {

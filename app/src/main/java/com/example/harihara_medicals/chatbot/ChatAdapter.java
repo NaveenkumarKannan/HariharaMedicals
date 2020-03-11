@@ -1,7 +1,7 @@
 package com.example.harihara_medicals.chatbot;
 
 /**
- * Created by VMac on 17/11/16.
+ * Created by NaveenkumarKannan on 17/11/16.
  */
 
 import android.app.Activity;

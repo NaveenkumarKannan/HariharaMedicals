@@ -19,7 +19,7 @@ import android.widget.Toast;
 import com.example.harihara_medicals.HomePageActivity;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Retrofit.ApiUtils;
-import com.example.harihara_medicals.Retrofit.Productapi;
+import com.example.harihara_medicals.Retrofit.ProductApi;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -36,15 +36,12 @@ public class BookAppointment extends AppCompatActivity {
     TextView dr_name,dr_spc,dr_fee,dr_ex,cal_date;
     CalendarView dr_date;
     TextView settime;
-    private Productapi productapi;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_appointment);
         book_appointment=findViewById(R.id.book_appointment);
-        productapi= ApiUtils.getProductapi();
         book_appointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +125,8 @@ public class BookAppointment extends AppCompatActivity {
     }
 
     private void sendpost(String dname, String spcl, String fee, String experience, String time, String date) throws IOException {
-        Call<Void> call=productapi.getAppointment(dname,fee,experience,spcl,time,date);
+        //ProductApi productApi= ApiUtils.getProductApi();
+        Call<Void> call=ApiUtils.getProductApi().getAppointment(dname,fee,experience,spcl,time,date);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

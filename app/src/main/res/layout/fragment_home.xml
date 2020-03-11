@@ -16,7 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_120sdp"
             android:background="@drawable/layout_bg">
-
+            <!--<de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/home_user"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/user"/>-->
             <ImageView
                 android:id="@+id/home_user"
                 android:layout_width="@dimen/_70sdp"
@@ -80,11 +85,11 @@
                 android:id="@+id/imageSlider"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_125sdp"
-                app:sliderAnimationDuration="1000"
+                app:sliderAnimationDuration="3000"
                 app:sliderAutoCycleDirection="back_and_forth"
                 app:sliderAutoCycleEnabled="true"
                 app:sliderCircularHandlerEnabled="true"
-                app:sliderIndicatorAnimationDuration="1000"
+                app:sliderIndicatorAnimationDuration="3000"
                 app:sliderIndicatorGravity="center_horizontal|bottom"
                 app:sliderIndicatorMargin="@dimen/_15sdp"
                 app:sliderIndicatorOrientation="horizontal"
@@ -92,7 +97,7 @@
                 app:sliderIndicatorRadius="@dimen/_2sdp"
                 app:sliderIndicatorSelectedColor="#5A5A5A"
                 app:sliderIndicatorUnselectedColor="#FFF"
-                app:sliderScrollTimeInSec="1"
+                app:sliderScrollTimeInSec="3"
                 app:sliderStartAutoCycle="true" />
 
         </androidx.cardview.widget.CardView>
