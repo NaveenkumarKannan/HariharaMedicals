@@ -34,6 +34,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 
+import static com.example.harihara_medicals.utils.Util.log;
+
 /**
  * Created by NaveenkumarKannan on 28/09/2017.
  */
@@ -81,9 +83,6 @@ public class BitmapUtils {
         convertBitmapToJpeg(bitmap, outputFile);
     }
 
-    public static void log(String message){
-        Log.e("BitmapUtils", message );
-    }
     public static String getImageFilePath(Uri uri,Context context) {
         //String id = DocumentsContract.getDocumentId(uri);
         InputStream inputStream = null;

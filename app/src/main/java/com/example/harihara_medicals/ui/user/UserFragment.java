@@ -18,10 +18,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.harihara_medicals.Edit_details;
+import com.example.harihara_medicals.HomePageActivity;
 import com.example.harihara_medicals.Loginpage;
 import com.example.harihara_medicals.Medicine.MedicalRecords;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Startpage;
+import com.example.harihara_medicals.otp_page;
 import com.example.harihara_medicals.utils.SharedPreferencesManager;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -53,7 +55,9 @@ public class UserFragment extends Fragment {
                 auth=FirebaseAuth.getInstance();
                 auth.signOut();
                 SharedPreferencesManager.logoutUser();
-                startActivity(new Intent(getActivity(), Loginpage.class));
+                Intent intent = new Intent(getActivity(), Loginpage.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
 
             }
         });

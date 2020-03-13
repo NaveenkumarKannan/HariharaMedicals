@@ -102,7 +102,7 @@ public class regisration_page extends AppCompatActivity {
         res_pro_pic = findViewById(R.id.regs_upload);
 
 
-        firstname.setText("Test firstname");
+        /*firstname.setText("Test firstname");
         lastname.setText("Test lastname");
         dob.setText("01/12/2020");
         email.setText("testmaill@gmail.com");
@@ -111,7 +111,7 @@ public class regisration_page extends AppCompatActivity {
         height.setText("172");
         weight.setText("75");
         blood_pressure.setText("165");
-        sugar_level.setText("65");
+        sugar_level.setText("65");*/
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {

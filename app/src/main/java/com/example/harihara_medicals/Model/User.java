@@ -48,7 +48,7 @@ public class User {
     private String preferredDoctorName;
     @SerializedName("image")
     @Expose
-    private String image;
+    private String imageUrl;
 
     private String uid;
     //user photo url in server
@@ -223,12 +223,12 @@ public class User {
         this.preferredDoctorName = preferredDoctorName;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
 }

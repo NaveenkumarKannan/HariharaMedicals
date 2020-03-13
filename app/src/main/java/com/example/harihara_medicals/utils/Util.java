@@ -12,6 +12,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.BackgroundColorSpan;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -163,7 +164,41 @@ public class Util {
         }
         */
     }
+    public static  void onBack(Activity activity, String message) {
+        showDialogOK(activity,message,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case DialogInterface.BUTTON_POSITIVE:
+                                activity.finish();
+                                break;
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                // proceed with logic by disabling the related features or quit the app.
+                                break;
+                        }
+                    }
+                });
+        /*
+        if (exit) {
+            finish(); // finish activity
+        } else {
+            Toast.makeText(this, "Press Back again to Exit.",
+                    Toast.LENGTH_SHORT).show();
+            exit = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
+        }
+        */
+    }
 
+    public static void log(String message) {
+        Log.e("Utils", message);
+    }
     public static void showDialogOK(Activity activity, String message, DialogInterface.OnClickListener okListener) {
         new AlertDialog.Builder(activity)
                 .setTitle("HariHara Medicals")

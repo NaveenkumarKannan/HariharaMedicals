@@ -82,7 +82,7 @@ dependencies {
     implementation 'com.devs:acr:1.0.1'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
-
+    implementation 'com.koushikdutta.urlimageviewhelper:urlimageviewhelper:1.0.4'
 }
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.ar.sceneform.plugin'
