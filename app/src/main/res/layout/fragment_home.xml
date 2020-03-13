@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <RelativeLayout
         android:id="@+id/home_layout1"
         android:layout_width="match_parent"
@@ -33,7 +32,6 @@
                 android:background="@drawable/user"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_10sdp"/>-->
-
             <ImageView
                 android:id="@+id/home_notification"
                 android:layout_width="@dimen/_25sdp"
@@ -69,46 +67,46 @@
         android:layout_below="@id/home_layout1"
         android:scrollbars="none">
 
-    <RelativeLayout
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF">
-
         <RelativeLayout
+            android:id="@+id/scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#808080">
+            android:background="#FFFFFF">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_margin="@dimen/_16sdp"
-
-            app:cardCornerRadius="@dimen/_8sdp">
-
-            <com.smarteist.autoimageslider.SliderView
-                android:id="@+id/imageSlider"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_125sdp"
-                app:sliderAnimationDuration="3000"
-                app:sliderAutoCycleDirection="back_and_forth"
-                app:sliderAutoCycleEnabled="true"
-                app:sliderCircularHandlerEnabled="true"
-                app:sliderIndicatorAnimationDuration="3000"
-                app:sliderIndicatorGravity="center_horizontal|bottom"
-                app:sliderIndicatorMargin="@dimen/_15sdp"
-                app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorPadding="@dimen/_3sdp"
-                app:sliderIndicatorRadius="@dimen/_2sdp"
-                app:sliderIndicatorSelectedColor="#5A5A5A"
-                app:sliderIndicatorUnselectedColor="#FFF"
-                app:sliderScrollTimeInSec="3"
-                app:sliderStartAutoCycle="true" />
+                android:layout_height="wrap_content"
+                android:background="#808080">
 
-        </androidx.cardview.widget.CardView>
-        </RelativeLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="@dimen/_16sdp"
+
+                    app:cardCornerRadius="@dimen/_8sdp">
+
+                    <com.smarteist.autoimageslider.SliderView
+                        android:id="@+id/imageSlider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_125sdp"
+                        app:sliderAnimationDuration="3000"
+                        app:sliderAutoCycleDirection="back_and_forth"
+                        app:sliderAutoCycleEnabled="true"
+                        app:sliderCircularHandlerEnabled="true"
+                        app:sliderIndicatorAnimationDuration="3000"
+                        app:sliderIndicatorGravity="center_horizontal|bottom"
+                        app:sliderIndicatorMargin="@dimen/_15sdp"
+                        app:sliderIndicatorOrientation="horizontal"
+                        app:sliderIndicatorPadding="@dimen/_3sdp"
+                        app:sliderIndicatorRadius="@dimen/_2sdp"
+                        app:sliderIndicatorSelectedColor="#5A5A5A"
+                        app:sliderIndicatorUnselectedColor="#FFF"
+                        app:sliderScrollTimeInSec="3"
+                        app:sliderStartAutoCycle="true" />
+
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
 
 
             <RelativeLayout

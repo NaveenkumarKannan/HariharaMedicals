@@ -17,34 +17,34 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-               <!-- <androidx.cardview.widget.CardView
+                <!-- <androidx.cardview.widget.CardView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     app:cardCornerRadius="@dimen/_10sdp"
+                     android:id="@+id/remainder_card">-->
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="@dimen/_10sdp"
-                    android:id="@+id/remainder_card">-->
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="@dimen/_10sdp"
-                        android:id="@+id/l1"
-                        android:background="@drawable/dialog_bg2">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Add Remainder"
-                            android:textColor="@color/colorwhite"
-                            android:fontFamily="@font/montserrat_bold"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Done"
-                            android:textColor="@color/colorwhite"
-                            android:id="@+id/remainder_done"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true" />
-                    </RelativeLayout>
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_10sdp"
+                    android:id="@+id/l1"
+                    android:background="@drawable/dialog_bg2">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Remainder"
+                        android:textColor="@color/colorwhite"
+                        android:fontFamily="@font/montserrat_bold"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Done"
+                        android:textColor="@color/colorwhite"
+                        android:id="@+id/remainder_done"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true" />
+                </RelativeLayout>
                 <!--</androidx.cardview.widget.CardView>-->
                 <RelativeLayout
                     android:id="@+id/remainder_layout"
@@ -147,9 +147,9 @@
                         android:layout_below="@id/remainder_time"
                         android:fontFamily="@font/montserrat_medium"
                         android:hint="Description"
-                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingStart="@dimen/_10sdp"
                         android:inputType="text"
-
                         android:background="@drawable/desctripion_edt"
                         android:layout_marginTop="@dimen/_30sdp"/>
 

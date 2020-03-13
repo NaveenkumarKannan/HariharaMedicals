@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import androidx.annotation.RequiresApi;
@@ -33,6 +34,7 @@ public class General_doctor extends AppCompatActivity {
     private Doctor_list_adapter doctor_list_adapter;
     private RecyclerView recyclerView;
     ProgressBar progressBar;
+    ImageView back_icon;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -42,9 +44,19 @@ public class General_doctor extends AppCompatActivity {
         setContentView(R.layout.general_doctor);
 
         recyclerView=findViewById(R.id.doctor_list_view);
+        back_icon = findViewById(R.id.back_icon);
         progressBar=findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
         progressBar.setProgressTintList(ColorStateList.valueOf(Color.BLUE));
+
+        back_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
+
 
 
         getResponse();

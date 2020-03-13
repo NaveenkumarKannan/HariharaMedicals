@@ -39,6 +39,8 @@ import com.smarteist.autoimageslider.SliderView;
 
 import java.io.File;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
