@@ -7,14 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -39,18 +36,14 @@ import com.mukesh.permissions.OnPermissionListener;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.UUID;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -69,7 +62,7 @@ public class regisration_page extends AppCompatActivity {
     String g_ender = "";
     final Calendar mycalender = Calendar.getInstance();
     EasyPermissions easyPermissions;
-    String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA};
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -165,10 +158,10 @@ public class regisration_page extends AppCompatActivity {
                 if (first_name.isEmpty()) {
                     firstname.setError("Enter your first name");
                     firstname.requestFocus();
-                } else if (last_name.isEmpty()) {
+                }/* else if (last_name.isEmpty()) {
                     lastname.setError("Enter your last name");
                     lastname.requestFocus();
-                } else if (d_o_b.isEmpty()) {
+                } */else if (d_o_b.isEmpty()) {
                     dob.setError("Enter your date of birth");
                     dob.requestFocus();
                 } else if (g_ender.isEmpty()) {
@@ -348,10 +341,9 @@ public class regisration_page extends AppCompatActivity {
                     String decodedImage = BitmapUtils.decodeImageAsPng(circleBitmap);
 
                     SharedPreferencesManager.saveMyThumbImg(decodedImage);
-                    SharedPreferencesManager.savePhoneNumber(user.getPhone());
-                    SharedPreferencesManager.saveMyUsername(user.getFirstname() + " " + user.getLastname());
                     SharedPreferencesManager.saveMyPhoto(file.getPath());
                     SharedPreferencesManager.saveFirstTimeLogin();
+                    SharedPreferencesManager.setCurrentUser(user);
 
                     Intent intent = new Intent(regisration_page.this, HomePageActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

@@ -169,9 +169,8 @@ public class otp_page extends AppCompatActivity {
                                     SharedPreferencesManager.saveMyThumbImg(decodedImage);
                                     SharedPreferencesManager.saveMyPhoto(file.getPath());
                                 }
-                                SharedPreferencesManager.savePhoneNumber(user.getPhone());
-                                SharedPreferencesManager.saveMyUsername(user.getFirstname() + " " + user.getLastname());
                                 SharedPreferencesManager.saveFirstTimeLogin();
+                                SharedPreferencesManager.setCurrentUser(user);
                                 Intent intent = new Intent(otp_page.this, HomePageActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);

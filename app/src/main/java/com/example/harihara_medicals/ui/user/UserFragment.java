@@ -11,37 +11,53 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.harihara_medicals.Edit_details;
 import com.example.harihara_medicals.HomePageActivity;
 import com.example.harihara_medicals.Loginpage;
 import com.example.harihara_medicals.Medicine.MedicalRecords;
+import com.example.harihara_medicals.Model.User;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Startpage;
 import com.example.harihara_medicals.otp_page;
 import com.example.harihara_medicals.utils.SharedPreferencesManager;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.File;
 import java.util.Locale;
 
 public class UserFragment extends Fragment {
     private TextView user_record,edit_details,feedback,language;
-    private  TextView logout;
+    private  TextView logout,user_name,user_num;
     FirebaseAuth  auth;
-
-
+    CircleImageView user_img;
+    User user;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        final View view=  inflater.inflate(R.layout.user_fragment, null);
+        user_img = view.findViewById(R.id.user_img);
+        user_name = view.findViewById(R.id.user_name);
+        user_num = view.findViewById(R.id.user_num);
+        user = SharedPreferencesManager.getCurrentUser();
+        user_name.setText(user.getUserName());
+        user_num.setText(user.getPhone());
+        final String myPhoto = user.getUserLocalPhoto();
+        Glide.with(this).load(Uri.fromFile(new File(myPhoto)))
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(user_img);
 
-                 final View view=  inflater.inflate(R.layout.user_fragment, null);
-         user_record= view.findViewById(R.id.user_record);
+        user_record= view.findViewById(R.id.user_record);
         user_record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
