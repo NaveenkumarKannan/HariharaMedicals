@@ -21,10 +21,12 @@ import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.harihara_medicals.HomePageActivity;
+import com.example.harihara_medicals.Model.User;
 import com.example.harihara_medicals.chatbot.LiveChatBot;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Adapters.SliderAdapter;
@@ -41,11 +43,12 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     SliderView sliderView;
-    TextView text1;
+    TextView text1, tv_bmi_rate, tv_bmi_status, tv_blood_pressure_rate, tv_sugar_level_rate;
     Button btn1,btn2,btn_menu,live_chat;
-    ImageView img1,img2,img3,img4,home_menu,home_user;
+    ImageView img1,img2,img3,img4,home_menu;
+    CircleImageView home_user;
     RelativeLayout layout;
-
+    User user;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -76,9 +79,34 @@ public class HomeFragment extends Fragment {
                 sliderView.setCurrentPagePosition(position);
             }
         });
-        text1=root.findViewById(R.id.home_doctor_visit);
+        text1 = root.findViewById(R.id.home_doctor_visit);
+        user = SharedPreferencesManager.getCurrentUser();
+        tv_bmi_rate = root.findViewById(R.id.tv_bmi_rate);
+        tv_bmi_status = root.findViewById(R.id.tv_bmi_status);
+        tv_blood_pressure_rate = root.findViewById(R.id.tv_blood_pressure_rate);
+        tv_sugar_level_rate = root.findViewById(R.id.tv_sugar_level_rate);
+
+        try {
+            String bmiStatus="";
+            float bmi = Float.parseFloat(user.getBmi());
+            if(bmi<18.5){
+                bmiStatus = "Below Normal";
+            }else if(bmi>=18.5&&bmi<25){
+                bmiStatus = "Normal";
+            }else {
+                bmiStatus = "Overweight";
+            }
+            tv_bmi_rate.setText(user.getBmi());
+            tv_bmi_status.setText(bmiStatus);
+        }catch (Exception e){
+            e.printStackTrace();
+            tv_bmi_rate.setText("Incorrect BMI");
+            tv_bmi_status.setText("Incorrect BMI");
+        }
+        tv_blood_pressure_rate.setText(user.getBpLevel());
+        tv_sugar_level_rate.setText(user.getSugarLevel());
         home_user = root.findViewById(R.id.home_user);
-        final String myPhoto = SharedPreferencesManager.getMyPhoto();
+        final String myPhoto = user.getUserLocalPhoto();
         Glide.with(root.getContext()).load(Uri.fromFile(new File(myPhoto)))
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .skipMemoryCache(true)

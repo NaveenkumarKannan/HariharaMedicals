@@ -1,7 +1,6 @@
 package com.example.harihara_medicals.utils;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.preference.PreferenceManager;
@@ -19,7 +18,7 @@ public class SharedPreferencesManager {
     }
 
     //save user username locally to show it his profile
-    public static void saveMyUsername(String username) {
+    public static void setUsername(String username) {
         mSharedPref.edit().putString("username", username).apply();
     }
 
@@ -29,7 +28,7 @@ public class SharedPreferencesManager {
     }
 
     //save user phone number locally to show it his profile
-    public static void savePhoneNumber(String phoneNumber) {
+    public static void setPhone(String phoneNumber) {
         mSharedPref.edit().putString("phone_number", phoneNumber).apply();
     }
 
@@ -38,11 +37,11 @@ public class SharedPreferencesManager {
         return mSharedPref.getString("username", "");
     }
 
-    public static String getPhoneNumber() {
+    public static String getPhone() {
         return mSharedPref.getString("phone_number", "");
     }
 
-    public static String getMyPhoto() {
+    public static String getUserLocalPhoto() {
         return mSharedPref.getString("user_image", "");
     }
 
@@ -100,14 +99,47 @@ public class SharedPreferencesManager {
     }
 
 
+    public static void setCurrentUser(User user) {
+        SharedPreferencesManager.setPhone(user.getPhone());
+        SharedPreferencesManager.setUsername(user.getFirstName() + " " + user.getLastName());
+        SharedPreferencesManager.setFirstName(user.getFirstName());
+        SharedPreferencesManager.setLastName(user.getLastName());
+        SharedPreferencesManager.setDob(user.getDob());
+        SharedPreferencesManager.setEmail(user.getEmail());
+        SharedPreferencesManager.setAddress(user.getAddress());
+        SharedPreferencesManager.setGender(user.getGender());
+        SharedPreferencesManager.setWeight(user.getWeight());
+        SharedPreferencesManager.setHeight(user.getHeight());
+        SharedPreferencesManager.setBmi(user.getBmi());
+        SharedPreferencesManager.setBpLevel(user.getBpLevel());
+        SharedPreferencesManager.setSugarLevel(user.getSugarLevel());
+        SharedPreferencesManager.setPreferredDoctorName(user.getPreferredDoctorName());
+        SharedPreferencesManager.setImageUrl(user.getImageUrl());
+    }
     public static User getCurrentUser() {
         User user = new User();
         user.setUid(FireManager.getUid());
         user.setThumbImg(SharedPreferencesManager.getThumbImg());
         user.setPhoto("");
-        user.setPhone(SharedPreferencesManager.getPhoneNumber());
+        user.setUserLocalPhoto(SharedPreferencesManager.getUserLocalPhoto());
+
+        user.setPhone(SharedPreferencesManager.getPhone());
         user.setUserName(SharedPreferencesManager.getUserName());
-        user.setUserLocalPhoto(SharedPreferencesManager.getMyPhoto());
+        user.setPhone(SharedPreferencesManager.getPhone());
+        user.setUserName(SharedPreferencesManager.getFirstName() + " " + SharedPreferencesManager.getLastName());
+        user.setFirstName(SharedPreferencesManager.getFirstName());
+        user.setLastName(SharedPreferencesManager.getLastName());
+        user.setDob(SharedPreferencesManager.getDob());
+        user.setEmail(SharedPreferencesManager.getEmail());
+        user.setAddress(SharedPreferencesManager.getAddress());
+        user.setGender(SharedPreferencesManager.getGender());
+        user.setWeight(SharedPreferencesManager.getWeight());
+        user.setHeight(SharedPreferencesManager.getHeight());
+        user.setBmi(SharedPreferencesManager.getBmi());
+        user.setBpLevel(SharedPreferencesManager.getBpLevel());
+        user.setSugarLevel(SharedPreferencesManager.getSugarLevel());
+        user.setPreferredDoctorName(SharedPreferencesManager.getPreferredDoctorName());
+        user.setImageUrl(SharedPreferencesManager.getImageUrl());
         return user;
     }
 
@@ -168,5 +200,110 @@ public class SharedPreferencesManager {
     public static void logoutUser(){
         // Clearing all data from Shared Preferences
         mSharedPref.edit().clear().apply();
+    }
+
+
+    public static String getFirstName() {
+        return mSharedPref.getString("firstName", "");
+    }
+
+    public static void setFirstName(String firstName) {
+        mSharedPref.edit().putString("firstName", firstName).apply();
+    }
+
+    public static String getLastName() {
+        return mSharedPref.getString("lastName", "");
+    }
+
+    public static void setLastName(String lastName) {
+        mSharedPref.edit().putString("lastName", lastName).apply();
+    }
+
+    public static String getDob() {
+        return mSharedPref.getString("dob", "");
+    }
+
+    public static void setDob(String dob) {
+        mSharedPref.edit().putString("dob", dob).apply();
+    }
+
+    public static String getEmail() {
+        return mSharedPref.getString("email", "");
+    }
+
+    public static void setEmail(String email) {
+        mSharedPref.edit().putString("email", email).apply();
+    }
+
+    public static String getAddress() {
+        return mSharedPref.getString("address", "");
+    }
+
+    public static void setAddress(String address) {
+        mSharedPref.edit().putString("address", address).apply();
+    }
+
+    public static String getGender() {
+        return mSharedPref.getString("gender", "");
+    }
+
+    public static void setGender(String gender) {
+        mSharedPref.edit().putString("gender", gender).apply();
+    }
+
+    public static String getWeight() {
+        return mSharedPref.getString("weight", "");
+    }
+
+    public static void setWeight(String weight) {
+        mSharedPref.edit().putString("weight", weight).apply();
+    }
+
+    public static String getHeight() {
+        return mSharedPref.getString("height", "");
+    }
+
+    public static void setHeight(String height) {
+        mSharedPref.edit().putString("height", height).apply();
+    }
+
+    public static String getBmi() {
+        return mSharedPref.getString("bmi", "");
+    }
+
+    public static void setBmi(String bmi) {
+        mSharedPref.edit().putString("bmi", bmi).apply();
+    }
+
+    public static String getBpLevel() {
+        return mSharedPref.getString("bpLevel", "");
+    }
+
+    public static void setBpLevel(String bpLevel) {
+        mSharedPref.edit().putString("bpLevel", bpLevel).apply();
+    }
+
+    public static String getSugarLevel() {
+        return mSharedPref.getString("sugarLevel", "");
+    }
+
+    public static void setSugarLevel(String sugarLevel) {
+        mSharedPref.edit().putString("sugarLevel", sugarLevel).apply();
+    }
+
+    public static String getPreferredDoctorName() {
+        return mSharedPref.getString("preferredDoctorName", "");
+    }
+
+    public static void setPreferredDoctorName(String preferredDoctorName) {
+        mSharedPref.edit().putString("preferredDoctorName", preferredDoctorName).apply();
+    }
+
+    public static String getImageUrl() {
+        return mSharedPref.getString("imageUrl", "");
+    }
+
+    public static void setImageUrl(String imageUrl) {
+        mSharedPref.edit().putString("imageUrl", imageUrl).apply();
     }
 }

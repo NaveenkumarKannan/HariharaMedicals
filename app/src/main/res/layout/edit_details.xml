@@ -120,7 +120,7 @@
                 android:hint="Mobile"
                 android:inputType="number"
                 android:maxLines="1"
-
+                android:visibility="gone"
                 />
             <EditText
                 android:layout_below="@id/regs_mob"
@@ -209,7 +209,6 @@
                 android:hint="Preferred doctor name"
                 />
 
-                />
             <ImageView
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"

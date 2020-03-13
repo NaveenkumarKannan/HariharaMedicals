@@ -9,10 +9,10 @@ public class User {
     private String userId;
     @SerializedName("firstname")
     @Expose
-    private String firstname;
+    private String firstName;
     @SerializedName("lastname")
     @Expose
-    private String lastname;
+    private String lastName;
     @SerializedName("dob")
     @Expose
     private String dob;
@@ -119,20 +119,28 @@ public class User {
         this.userId = userId;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getDob() {
@@ -157,14 +165,6 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getGender() {

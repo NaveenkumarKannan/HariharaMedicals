@@ -18,11 +18,10 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_30sdp"
         android:id="@+id/user_layout1">
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_img"
             android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_60sdp"
-            android:background="@drawable/img_list" />
+            android:layout_height="@dimen/_60sdp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
