@@ -37,14 +37,17 @@ import com.smarteist.autoimageslider.SliderView;
 
 import java.io.File;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     SliderView sliderView;
     TextView text1;
     Button btn1,btn2,btn_menu,live_chat;
-    ImageView img1,img2,img3,img4,home_menu,home_user;
+    ImageView img1,img2,img3,img4,home_menu;
     RelativeLayout layout;
+    CircleImageView home_user;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

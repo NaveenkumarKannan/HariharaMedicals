@@ -8,7 +8,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_110sdp"
-        android:background="#3377ff"
+        android:background="#1B1464"
         />
 
     <EditText

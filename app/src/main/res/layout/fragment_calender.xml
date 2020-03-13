@@ -30,13 +30,16 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/calendar_layout1"
                 android:padding="@dimen/_10sdp">
-        <TextView
-            android:id="@+id/remainder"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_width="@dimen/_140sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:text="REMAINDER"
-            android:textSize="@dimen/_15sdp"
+                <TextView
+                    android:id="@+id/remainder"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:text="REMAINDER"
+                    android:textSize="@dimen/_12sdp"
+                    android:background="@drawable/calendar_remainder"
+                    android:padding="@dimen/_6sdp"
+                    android:textAlignment="center" />
 
             android:background="@drawable/calendar_remainder"
             android:padding="@dimen/_10sdp"
