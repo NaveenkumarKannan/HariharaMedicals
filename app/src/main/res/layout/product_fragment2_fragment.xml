@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/product_search"
                 android:layout_marginHorizontal="@dimen/_20sdp"
-                android:background="@drawable/edt_bg"
+                android:background="@drawable/res_border2"
                 android:padding="@dimen/_10sdp"
                 android:maxLines="1"
                 android:inputType="text"
@@ -64,9 +64,9 @@
                 >
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_health"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:textColor="@color/colorwhite"
                     android:textStyle="bold"
                     android:id="@+id/product_btn_health_wealth"
@@ -74,9 +74,9 @@
                     android:background="@drawable/btn_radius"/>
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_cosmetics"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:textStyle="bold"
                     android:textColor="@color/colorwhite"
                     android:fontFamily="@font/montserrat_bold"
@@ -87,9 +87,9 @@
                     />
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_medicine"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:textStyle="bold"
                     android:fontFamily="@font/montserrat_bold"
                     android:textColor="@color/colorwhite"
@@ -100,9 +100,9 @@
                     />
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_surgical"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:textStyle="bold"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:fontFamily="@font/montserrat_bold"
@@ -115,9 +115,9 @@
                     />
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_veterinary"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:textColor="@color/colorwhite"
                     android:fontFamily="@font/montserrat_bold"
@@ -128,9 +128,9 @@
                     />
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_ayurveda"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:textStyle="bold"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:textColor="@color/colorwhite"

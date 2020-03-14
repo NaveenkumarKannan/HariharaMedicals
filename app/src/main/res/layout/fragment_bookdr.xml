@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/product_search"
                 android:layout_marginHorizontal="@dimen/_30sdp"
-                android:background="@drawable/edt_bg"
+                android:background="@drawable/res_border2"
                 android:padding="@dimen/_11sdp"
                 android:maxLines="1"
                 android:inputType="text"
@@ -38,7 +38,7 @@
                 android:text="@string/title_search_doctors"
                 android:textStyle="bold"
                 android:textSize="@dimen/_15sdp"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_9sdp"
                 android:layout_centerHorizontal="true"
                 />
             <TextView
@@ -61,9 +61,9 @@
                 >
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_general_doctor"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:padding="@dimen/_8sdp"
                     android:textColor="@color/colorwhite"
                     android:textStyle="bold"
@@ -72,9 +72,9 @@
                     android:background="@drawable/btn_radius"/>
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_skin"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:textStyle="bold"
                     android:textColor="@color/colorwhite"
                     android:fontFamily="@font/montserrat_bold"
@@ -85,9 +85,9 @@
                     />
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_child"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:textStyle="bold"
                     android:fontFamily="@font/montserrat_bold"
                     android:textColor="@color/colorwhite"
@@ -98,9 +98,9 @@
                     />
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_women"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:textStyle="bold"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:fontFamily="@font/montserrat_bold"
@@ -113,9 +113,9 @@
                     />
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_homeopathy"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:textColor="@color/colorwhite"
                     android:fontFamily="@font/montserrat_bold"
@@ -126,9 +126,9 @@
                     />
                 <Button
                     android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:text="@string/title_ayurveda"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_9sdp"
                     android:textStyle="bold"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:textColor="@color/colorwhite"

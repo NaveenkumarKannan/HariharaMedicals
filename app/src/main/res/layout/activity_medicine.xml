@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/product_search"
         android:layout_marginHorizontal="@dimen/_50sdp"
-        android:background="@drawable/edt_bg"
+        android:background="@drawable/res_border2"
         android:padding="@dimen/_15sdp"
         android:hint="Product"
         android:maxLines="1"
