@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class BookAppointment extends AppCompatActivity {
     TextView dr_name,dr_spc,dr_fee,dr_ex,cal_date;
     CalendarView dr_date;
     TextView settime;
+    ImageView back_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +68,19 @@ public class BookAppointment extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-
-                    }
+            }
         });
+
+        back_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
+
+
+
         dr_name=findViewById(R.id.book_appointment_dr_name);
         dr_spc=findViewById(R.id.book_appointment_dr_edu);
         dr_ex=findViewById(R.id.book_appointment_dr_exp);

@@ -56,7 +56,7 @@
                     android:layout_width="@dimen/_90sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:text="REMAINDER"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_11sdp"
                     android:background="@drawable/calendar_remainder"
                     android:padding="@dimen/_6sdp"
                     android:textAlignment="center" />
