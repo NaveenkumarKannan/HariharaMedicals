@@ -58,7 +58,7 @@ public class User {
     //user photo path in the device
     private String userLocalPhoto;
     //user's  thumb img (small image) decodes as BASE64
-    private String thumbImg;
+    //private String thumbImg;
 
     //default app version
     private String appVer;
@@ -95,13 +95,13 @@ public class User {
         this.userLocalPhoto = userLocalPhoto;
     }
 
-    public String getThumbImg() {
+    /*public String getThumbImg() {
         return thumbImg;
     }
 
     public void setThumbImg(String thumbImg) {
         this.thumbImg = thumbImg;
-    }
+    }*/
 
     public String getAppVer() {
         return appVer;

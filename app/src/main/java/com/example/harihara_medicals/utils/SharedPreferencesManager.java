@@ -76,13 +76,13 @@ public class SharedPreferencesManager {
         mSharedPref.edit().putString("ccode", phoneNumber).apply();
     }
 
-    public static void saveMyThumbImg(String thumbImg) {
+    /*public static void saveMyThumbImg(String thumbImg) {
         mSharedPref.edit().putString("thumbImg", thumbImg).apply();
     }
 
     public static String getThumbImg() {
         return mSharedPref.getString("thumbImg", "");
-    }
+    }*/
 
     public static String getCountryCode() {
         return mSharedPref.getString("ccode", "");
@@ -119,7 +119,7 @@ public class SharedPreferencesManager {
     public static User getCurrentUser() {
         User user = new User();
         user.setUid(FireManager.getUid());
-        user.setThumbImg(SharedPreferencesManager.getThumbImg());
+        //user.setThumbImg(SharedPreferencesManager.getThumbImg());
         user.setPhoto("");
         user.setUserLocalPhoto(SharedPreferencesManager.getUserLocalPhoto());
 

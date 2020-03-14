@@ -34,6 +34,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.gson.Gson;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewCallback;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
@@ -112,13 +113,13 @@ public class otp_page extends AppCompatActivity {
 
                             //verification unsuccessful.. display an error message
 
-                            String message = "Somthing is wrong, we will fix it soon...";
+                            String message = "Something is wrong, we will fix it soon...";
 
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 message = "Invalid code entered...";
                             }
 
-                            Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), message, Snackbar.LENGTH_LONG);
+                            Snackbar snackbar = Snackbar.make(findViewById(R.id.otp_page), message, Snackbar.LENGTH_LONG);
                             snackbar.setAction("Dismiss", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -143,31 +144,38 @@ public class otp_page extends AppCompatActivity {
                     if (loginData.getSuccess()) {
 
                         User user = loginData.getUser();
-                        log("onResponse " + response);
                         String image_url = ApiUtils.PROFILE_IMAGE_URL+user.getImageUrl();
+                        log("onResponse " + new Gson().toJson(loginData));
+                        log("image_url = "+image_url);
                         UrlImageViewHelper.loadUrlDrawable(otp_page.this, image_url, new UrlImageViewCallback() {
                             @Override
                             public void onLoaded(ImageView imageView,
                                                  Bitmap loadedBitmap, String url,
                                                  boolean loadedFromCache) {
                                 if (loadedBitmap != null) {
-                                    Toast.makeText(otp_page.this, loginData.getMessage(), Toast.LENGTH_SHORT).show();
+                                    try {
+                                        Toast.makeText(otp_page.this, loginData.getMessage(), Toast.LENGTH_SHORT).show();
 
-                                    final File file = DirManager.generateUserProfileImage();
+                                        final File file = DirManager.generateUserProfileImage();
 
-                                    //it is not recommended to change IMAGE_QUALITY_COMPRESS as it may become
-                                    //too big and this may cause the app to crash due to large thumbImg
-                                    //therefore the thumb img may became un-parcelable through activities
-                                    int IMAGE_QUALITY_COMPRESS = 30;
-                                    BitmapUtils.convertBitmapToJpeg(loadedBitmap, file, IMAGE_QUALITY_COMPRESS);
+                                        //it is not recommended to change IMAGE_QUALITY_COMPRESS as it may become
+                                        //too big and this may cause the app to crash due to large thumbImg
+                                        //therefore the thumb img may became un-parcelable through activities
+                                        BitmapUtils.convertBitmapToJpeg(loadedBitmap, file);
 
-                                    //generate circle bitmap
-                                    Bitmap circleBitmap = BitmapUtils.getCircleBitmap(BitmapUtils.convertFileImageToBitmap(file.getPath()));
-                                    //decode the image as base64 string
-                                    String decodedImage = BitmapUtils.decodeImageAsPng(circleBitmap);
+                                        /*//generate circle bitmap
+                                        Bitmap circleBitmap = BitmapUtils.getCircleBitmap(BitmapUtils.convertFileImageToBitmap(file.getPath()));
+                                        //decode the image as base64 string
+                                        String decodedImage = BitmapUtils.decodeImageAsPng(circleBitmap);
 
-                                    SharedPreferencesManager.saveMyThumbImg(decodedImage);
-                                    SharedPreferencesManager.saveMyPhoto(file.getPath());
+                                        SharedPreferencesManager.saveMyThumbImg(decodedImage);*/
+                                        SharedPreferencesManager.saveMyPhoto(file.getPath());
+                                        log("loadedFromCache = "+loadedFromCache);
+                                        log("filePath = "+file.getPath());
+                                    }catch (Exception e){
+                                        e.printStackTrace();
+                                        log(e.getMessage());
+                                    }
                                 }
                                 SharedPreferencesManager.saveFirstTimeLogin();
                                 SharedPreferencesManager.setCurrentUser(user);

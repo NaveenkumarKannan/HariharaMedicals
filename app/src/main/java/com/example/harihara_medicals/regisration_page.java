@@ -51,6 +51,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.harihara_medicals.utils.Util.log;
+
 public class regisration_page extends AppCompatActivity {
     EditText firstname, lastname, dob, email, address, drname, height, weight, blood_pressure, sugar_level;
     RadioGroup radio_group;
@@ -326,22 +328,26 @@ public class regisration_page extends AppCompatActivity {
                     User user = loginData.getUser();
                     log("onResponse " + response);
                     Toast.makeText(regisration_page.this, loginData.getMessage(), Toast.LENGTH_SHORT).show();
+                    try {
+                        final File file = DirManager.generateUserProfileImage();
 
-                    final File file = DirManager.generateUserProfileImage();
+                        //it is not recommended to change IMAGE_QUALITY_COMPRESS as it may become
+                        //too big and this may cause the app to crash due to large thumbImg
+                        //therefore the thumb img may became un-parcelable through activities
+                        int IMAGE_QUALITY_COMPRESS = 30;
+                        BitmapUtils.compressImage(fileUri.getPath(), file, IMAGE_QUALITY_COMPRESS);
 
-                    //it is not recommended to change IMAGE_QUALITY_COMPRESS as it may become
-                    //too big and this may cause the app to crash due to large thumbImg
-                    //therefore the thumb img may became un-parcelable through activities
-                    int IMAGE_QUALITY_COMPRESS = 30;
-                    BitmapUtils.compressImage(fileUri.getPath(), file, IMAGE_QUALITY_COMPRESS);
+                        /*//generate circle bitmap
+                        Bitmap circleBitmap = BitmapUtils.getCircleBitmap(BitmapUtils.convertFileImageToBitmap(file.getPath()));
+                        //decode the image as base64 string
+                        String decodedImage = BitmapUtils.decodeImageAsPng(circleBitmap);
 
-                    //generate circle bitmap
-                    Bitmap circleBitmap = BitmapUtils.getCircleBitmap(BitmapUtils.convertFileImageToBitmap(file.getPath()));
-                    //decode the image as base64 string
-                    String decodedImage = BitmapUtils.decodeImageAsPng(circleBitmap);
-
-                    SharedPreferencesManager.saveMyThumbImg(decodedImage);
-                    SharedPreferencesManager.saveMyPhoto(file.getPath());
+                        SharedPreferencesManager.saveMyThumbImg(decodedImage);*/
+                        SharedPreferencesManager.saveMyPhoto(file.getPath());
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        log(e.getMessage());
+                    }
                     SharedPreferencesManager.saveFirstTimeLogin();
                     SharedPreferencesManager.setCurrentUser(user);
 
