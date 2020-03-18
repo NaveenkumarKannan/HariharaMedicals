@@ -2,6 +2,7 @@ package com.example.harihara_medicals.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,9 @@ public class Doctor_list_adapter extends RecyclerView.Adapter<Doctor_list_adapte
                 intent.putExtra("Dr_num",drnum);
                 intent.putExtra("Dr_fees",drfee);
                 intent.putExtra("Dr_exp",drexp);
+
+                Log.d("Drnum1", ""+drnum);
+
                 v.getContext().startActivity(intent);
             }
         });

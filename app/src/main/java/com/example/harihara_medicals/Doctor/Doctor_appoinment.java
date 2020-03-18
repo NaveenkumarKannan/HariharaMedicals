@@ -2,6 +2,7 @@ package com.example.harihara_medicals.Doctor;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -43,20 +44,23 @@ public class Doctor_appoinment  extends AppCompatActivity {
         app_dr_name=findViewById(R.id.dr_app_name);
         app_dr_spc=findViewById(R.id.dr_app_edu);
         app_dr_address=findViewById(R.id.dr_app_address);
-       /* app_dr_num=findViewById(R.id.dr_app_num1);
-        app_dr_num2=findViewById(R.id.dr_app_num2);*/
+
+        app_dr_num=findViewById(R.id.dr_app_num1);
+        app_dr_num2=findViewById(R.id.dr_app_num2);
+
         Intent intent=getIntent();
         String drname=intent.getStringExtra("Dr_name");
         String drspc=intent.getStringExtra("Dr_spc");
         String draddress=intent.getStringExtra("Dr_address");
+        String drnum=intent.getStringExtra("Dr_num");
 
+        Log.d("Drnum", ""+drnum);
 
-       /* String drnum=intent.getStringExtra("Dr_num");*/
         app_dr_name.setText(drname);
         app_dr_spc.setText(drspc);
         app_dr_address.setText(draddress);
-        /*app_dr_num.setText(drnum);
-        app_dr_num2.setText(drnum);*/
+        app_dr_num.setText(drnum);
+        app_dr_num2.setText(drnum);
 
 
     }

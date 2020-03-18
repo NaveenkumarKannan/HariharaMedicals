@@ -1,5 +1,6 @@
 package com.example.harihara_medicals.Retrofit;
 
+import com.example.harihara_medicals.Model.Doctor_list;
 import com.example.harihara_medicals.Model.LoginData;
 
 import okhttp3.MultipartBody;
@@ -19,6 +20,10 @@ public interface ProductApi {
 
     @GET("product.php")
     Call<String> getMedicen();
+
+    @FormUrlEncoded
+    @POST("doctor.php")
+    Call<String> getDoctorbySpe(@Field("spcl") String spcl);
 
     @FormUrlEncoded
     @POST("appointment.php")

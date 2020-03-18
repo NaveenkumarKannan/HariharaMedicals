@@ -1,5 +1,6 @@
 package com.example.harihara_medicals.Doctor;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -72,7 +74,10 @@ public class General_doctor extends AppCompatActivity {
         //ProductApi api =ApiUtils.getUrl();
         ProductApi api =ApiUtils.getScalarUrl();
 
-        Call<String> call= api.getDoctors();
+        Intent intent = getIntent();
+        String spcl = intent.getExtras().getString("spe");
+
+        Call<String> call= api.getDoctorbySpe(spcl);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
