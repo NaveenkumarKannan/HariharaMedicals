@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingRight="50dp"
+            android:padding="10dp"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_arrow_back_black_24dp"
             android:id="@+id/back_icon"
@@ -27,11 +27,12 @@
             android:fontFamily="font/verdana.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Result showing General Doctors"
+            android:text="General Doctors"
             android:textSize="18sp"
             android:id="@+id/signup_title"
             android:layout_centerInParent="true"
             android:textColor="@android:color/white" />
+
     </RelativeLayout>
 
 

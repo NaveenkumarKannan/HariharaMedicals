@@ -1,7 +1,19 @@
 package com.example.harihara_medicals.Model;
 
 public class Doctor_list {
-    private String doctor_name,doctor_spc,doctor_num,doctor_address,doctor_fees,doctor_exprience;
+    private String did,doctor_name,doctor_spc,doctor_num1,doctor_num2,doctor_address,doctor_fees,doctor_exprience;
+
+    public String getDid() {
+        return did;
+    }
+
+    public void setDid(String did) {
+        this.did = did;
+    }
+
+    public String getDoctor_name() {
+        return doctor_name;
+    }
 
     public String getDoctor_fees() {
         return doctor_fees;
@@ -28,13 +40,6 @@ public class Doctor_list {
     }
 
     public Doctor_list() {
-        this.doctor_name = doctor_name;
-        this.doctor_spc = doctor_spc;
-        this.doctor_num = doctor_num;
-    }
-
-    public String getDoctor_name() {
-        return doctor_name;
     }
 
     public void setDoctor_name(String doctor_name) {
@@ -49,11 +54,19 @@ public class Doctor_list {
         this.doctor_spc = doctor_spc;
     }
 
-    public String getDoctor_num() {
-        return doctor_num;
+    public String getDoctor_num1() {
+        return doctor_num1;
     }
 
-    public void setDoctor_num(String doctor_num) {
-        this.doctor_num = doctor_num;
+    public void setDoctor_num1(String doctor_num1) {
+        this.doctor_num1 = doctor_num1;
+    }
+
+    public String getDoctor_num2() {
+        return doctor_num2;
+    }
+
+    public void setDoctor_num2(String doctor_num2) {
+        this.doctor_num2 = doctor_num2;
     }
 }

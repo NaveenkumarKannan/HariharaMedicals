@@ -36,6 +36,7 @@ public class Doctor_list_adapter extends RecyclerView.Adapter<Doctor_list_adapte
 
     @Override
     public void onBindViewHolder(@NonNull final Doctor_list_adapter.MyViewHolder holder,final int position) {
+        String docid = doctor_listArrayList.get(position).getDid();
         holder.Dr__name.setText(doctor_listArrayList.get(position).getDoctor_name());
         holder.Dr_spc.setText(doctor_listArrayList.get(position).getDoctor_spc());
         holder.Dr_fees.setText(doctor_listArrayList.get(position).getDoctor_fees());
@@ -49,18 +50,22 @@ public class Doctor_list_adapter extends RecyclerView.Adapter<Doctor_list_adapte
                 String drfee=holder.Dr_fees.getText().toString();
                 String drexp=holder.Dr_exp.getText().toString();
                 String draddress=doctor_listArrayList.get(position).getDoctor_address();
-                String drnum=doctor_listArrayList.get(position).getDoctor_num();
+                String drnum1=doctor_listArrayList.get(position).getDoctor_num1();
+                String drnum2=doctor_listArrayList.get(position).getDoctor_num2();
                 /*String drfee=doctor_listArrayList.get(position).getDoctor_fees();
                 String drexp=doctor_listArrayList.get(position).getDoctor_exprience();*/
                 Intent intent=new Intent(v.getContext(), Doctor_appoinment.class);
                 intent.putExtra("Dr_name",drname);
                 intent.putExtra("Dr_spc",drspc);
                 intent.putExtra("Dr_address",draddress);
-                intent.putExtra("Dr_num",drnum);
+                //intent.putExtra("Dr_num",drnum);
                 intent.putExtra("Dr_fees",drfee);
                 intent.putExtra("Dr_exp",drexp);
+                intent.putExtra("Dr_num1",drnum1);
+                intent.putExtra("Dr_num2",drnum2);
+                intent.putExtra("did", docid);
 
-                Log.d("Drnum1", ""+drnum);
+                //Log.d("Drnum1", ""+drnum);
 
                 v.getContext().startActivity(intent);
             }

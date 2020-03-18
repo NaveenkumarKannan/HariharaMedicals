@@ -36,6 +36,16 @@ public interface ProductApi {
             @Field("date") String date);
 
     @FormUrlEncoded
+    @POST("make_apmt.php")
+    Call<Void> makeAppointment(
+            @Field("doctor_id") String doctor_id,
+            @Field("user_id") String user_id,
+            @Field("dname") String dname,
+            @Field("spcl") String spcl,
+            @Field("time") String time,
+            @Field("date") String date);
+
+    @FormUrlEncoded
     @POST("reminder.php")
     Call<Void> getReminder(
             @Field("desc") String desc,

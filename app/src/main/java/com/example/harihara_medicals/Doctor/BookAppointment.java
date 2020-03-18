@@ -44,33 +44,8 @@ public class BookAppointment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_appointment);
         book_appointment=findViewById(R.id.book_appointment);
-        book_appointment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    sendpost(dr_name.getText().toString(),dr_spc.getText().toString(),dr_fee.getText().toString(),dr_ex.getText().toString(),settime.getText().toString(),cal_date.getText().toString());
-                    final Dialog dialog=new Dialog(BookAppointment.this);
-                    dialog.setContentView(R.layout.book_appointment_dialog);
 
-                    TextView done=dialog.findViewById(R.id.appointment_done);
-                    done.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getApplicationContext(),"appointment done....",Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
-                            startActivity(new Intent(BookAppointment.this, HomePageActivity.class));
-                        }
-                    });
-                    dialog.show();
-                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-
-            }
-        });
-
+        back_icon = findViewById(R.id.back_icon);
         back_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,9 +53,6 @@ public class BookAppointment extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
         dr_name=findViewById(R.id.book_appointment_dr_name);
         dr_spc=findViewById(R.id.book_appointment_dr_edu);
         dr_ex=findViewById(R.id.book_appointment_dr_exp);
@@ -91,6 +63,7 @@ public class BookAppointment extends AppCompatActivity {
         String Dr_spc=intent.getStringExtra("Dr_spc");
         String Dr_fees=intent.getStringExtra("Dr_fees");
         String Dr_epx=intent.getStringExtra("Dr_epx");
+        String did = intent.getStringExtra("docid");
         dr_fee.setText(Dr_fees+"Rs");
         dr_ex.setText(Dr_epx+"yrs of epx");
         dr_name.setText(Dr_name);
@@ -126,6 +99,7 @@ public class BookAppointment extends AppCompatActivity {
             }
         });
         dr_date=findViewById(R.id.book_appointment_calender);
+
         dr_date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
@@ -134,24 +108,43 @@ public class BookAppointment extends AppCompatActivity {
             }
         });
 
+        book_appointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendpost(did, "12", dr_name.getText().toString(), dr_spc.getText().toString(), settime.getText().toString(), cal_date.getText().toString());
+                //Toast.makeText(BookAppointment.this, ""+did+" "+cal_date.getText().toString()+" "+settime.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
-    private void sendpost(String dname, String spcl, String fee, String experience, String time, String date) throws IOException {
+    private void sendpost(String docid, String usrid, String dname, String spe, String time, String date){
         //ProductApi productApi= ApiUtils.getProductApi();
-        Call<Void> call=ApiUtils.getProductApi().getAppointment(dname,fee,experience,spcl,time,date);
+        Call<Void> call=ApiUtils.getProductApi().makeAppointment(docid, usrid, dname, spe, time, date);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(BookAppointment.this, "data Inserted successfully", Toast.LENGTH_SHORT).show();
+                final Dialog dialog=new Dialog(BookAppointment.this);
+                dialog.setContentView(R.layout.book_appointment_dialog);
+
+                TextView done=dialog.findViewById(R.id.appointment_done);
+                done.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(),"appointment done....",Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                        startActivity(new Intent(BookAppointment.this, HomePageActivity.class));
+                    }
+                });
+                dialog.show();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(BookAppointment.this, "Error", Toast.LENGTH_SHORT).show();
-                Log.e("OnFailure", t.getMessage());
+                Toast.makeText(BookAppointment.this, "Try again", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 
 }
