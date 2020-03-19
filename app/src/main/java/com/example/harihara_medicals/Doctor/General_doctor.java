@@ -148,6 +148,7 @@ public class General_doctor extends AppCompatActivity {
                 doctor_list.setDoctor_num1(dataobj.getString("phone_number1"));
                 doctor_list.setDoctor_num2(dataobj.getString("phone_number2"));
                 doctor_list.setDid(dataobj.getString("did"));
+                doctor_list.setDoctor_qu(dataobj.getString("qualification"));
                 doctor_listArrayList.add(doctor_list);
             }
            /* for (int j=0;j<doctor_listArrayList.size();j++){

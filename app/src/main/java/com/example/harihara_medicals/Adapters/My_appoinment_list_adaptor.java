@@ -38,8 +38,7 @@ public class My_appoinment_list_adaptor extends RecyclerView.Adapter<My_appoinme
         holder.dr_apm_ex.setText(my_appoinment_listArrayList.get(position).getDr_ex()+" yrs of exp");
         holder.dr_apm_time.setText(my_appoinment_listArrayList.get(position).getDr_time());
         holder.dr_apm_date.setText(my_appoinment_listArrayList.get(position).getDr_date());
-
-
+        holder.dr_apm_edu.setText(my_appoinment_listArrayList.get(position).getDr_edu());
     }
 
     @Override
@@ -48,15 +47,16 @@ public class My_appoinment_list_adaptor extends RecyclerView.Adapter<My_appoinme
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView dr_apm_name,dr_apm_spl,dr_apm_fees,dr_apm_date,dr_apm_time,dr_apm_ex,dr_apm_dept;
+        TextView dr_apm_name,dr_apm_spl,dr_apm_fees,dr_apm_date,dr_apm_time,dr_apm_ex,dr_apm_edu;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             dr_apm_name=itemView.findViewById(R.id.dr_name);
-            dr_apm_spl=itemView.findViewById(R.id.dr_edu);
+            dr_apm_spl=itemView.findViewById(R.id.dr_edu1);
             dr_apm_fees=itemView.findViewById(R.id.dr_fees);
             dr_apm_date=itemView.findViewById(R.id.dr_date);
             dr_apm_time=itemView.findViewById(R.id.dr_time);
             dr_apm_ex=itemView.findViewById(R.id.dr_exp);
+            dr_apm_edu=itemView.findViewById(R.id.dr_edu);
         }
     }
 }

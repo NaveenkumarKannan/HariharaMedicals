@@ -9,9 +9,11 @@ import android.util.Log;
 
 import com.example.harihara_medicals.Adapters.My_appoinment_list_adaptor;
 import com.example.harihara_medicals.Model.My_appoinment_list;
+import com.example.harihara_medicals.Model.User;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Retrofit.ApiUtils;
 import com.example.harihara_medicals.Retrofit.ProductApi;
+import com.example.harihara_medicals.utils.SharedPreferencesManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +47,10 @@ public class My_appointment extends AppCompatActivity {
         //ProductApi api =ApiUtils.getUrl();
         ProductApi api = ApiUtils.getScalarUrl();
 
-        Call<String> call = api.getAppoinments();
+        User user = SharedPreferencesManager.getCurrentUser();
+        String user_id = user.getUid();
+
+        Call<String> call = api.getAppoinments(user_id);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -83,6 +88,7 @@ public class My_appointment extends AppCompatActivity {
                 my_appoinment_list.setDr_ex(dataobj.getString("experience"));
                 my_appoinment_list.setDr_time(dataobj.getString("time"));
                 my_appoinment_list.setDr_date(dataobj.getString("date"));
+                my_appoinment_list.setDr_edu(dataobj.getString("qualification"));
                 my_appoinment_listArrayList.add(my_appoinment_list);
             }
 

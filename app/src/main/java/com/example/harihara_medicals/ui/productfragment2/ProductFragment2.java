@@ -32,18 +32,50 @@ private EditText product_search;
 
             }
         });
-       product_search=view.findViewById(R.id.product_search);
-        product_search.setOnClickListener(new View.OnClickListener() {
+        btn_cosmetics=view.findViewById(R.id.product_btn_cosmetics);
+        btn_cosmetics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),Medicine.class));
-           }
+                startActivity( new Intent(getActivity(),Medicine.class));
+
+            }
         });
+        btn_surgical=view.findViewById(R.id.product_btn_Surgical_item);
+        btn_surgical.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent(getActivity(),Medicine.class));
+
+            }
+        });
+        btn_veternary=view.findViewById(R.id.product_btn_veterinary);
+        btn_veternary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent(getActivity(),Medicine.class));
+
+            }
+        });
+        btn_ayrvedic=view.findViewById(R.id.product_btn_Ayrvedic);
+        btn_ayrvedic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent(getActivity(),Medicine.class));
+
+            }
+        });
+//       product_search=view.findViewById(R.id.product_search);
+//        product_search.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(),Medicine.class));
+//           }
+//        });
         btn_health=view.findViewById(R.id.product_btn_health_wealth);
         btn_health.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), Ar_product.class));
+                startActivity( new Intent(getActivity(),Medicine.class));
             }
         });
         return view;

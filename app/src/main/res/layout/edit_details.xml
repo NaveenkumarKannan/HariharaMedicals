@@ -57,18 +57,22 @@
                 android:inputType="text"
 
                 />
+
             <EditText
-                android:layout_below="@id/regs_lastname"
+                android:id="@+id/regs_dob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/regs_dob"
-                android:paddingLeft="@dimen/_25sdp"
-                android:fontFamily="@font/montserrat_medium"
+                android:layout_below="@id/regs_lastname"
                 android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="-1dp"
+                android:fontFamily="@font/montserrat_medium"
                 android:hint="dd-mm-yy"
-                android:maxLines="1"
+                android:focusable="false"
+                android:clickable="true"
                 android:inputType="number"
-                />
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_25sdp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,39 +82,52 @@
                 android:textSize="@dimen/_15sdp"
                 android:fontFamily="@font/montserrat_medium"
                 android:layout_marginLeft="@dimen/_20sdp"/>
-            <RadioButton
+
+            <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/regs_male_radio"
-                android:layout_toRightOf="@+id/regs_gender"
-                android:layout_below="@id/regs_dob"
-                android:layout_marginLeft="@dimen/_5sdp"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="Male"
-                android:textSize="@dimen/_13sdp"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/regs_female_radio"
-                android:layout_toRightOf="@+id/regs_male_radio"
-                android:fontFamily="@font/montserrat_medium"
-                android:layout_below="@id/regs_dob"
-                android:layout_marginLeft="@dimen/_5sdp"
-                android:text="Female"
-                android:textSize="@dimen/_13sdp"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/regs_others_radio"
-                android:layout_toRightOf="@id/regs_female_radio"
-                android:fontFamily="@font/montserrat_medium"
-                android:layout_below="@id/regs_dob"
-                android:layout_marginLeft="@dimen/_5sdp"
-                android:text="Others"
-                android:textSize="@dimen/_13sdp"/>
+                android:id="@+id/rdgrp"
+                android:layout_below="@id/regs_gender"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                >
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/regs_male_radio"
+                    android:layout_toRightOf="@+id/regs_gender"
+                    android:layout_below="@id/regs_dob"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Male"
+                    android:textSize="@dimen/_13sdp"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/regs_female_radio"
+                    android:layout_toRightOf="@+id/regs_male_radio"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_below="@id/regs_dob"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:text="Female"
+                    android:textSize="@dimen/_13sdp"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/regs_others_radio"
+                    android:layout_toRightOf="@id/regs_female_radio"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_below="@id/regs_dob"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:text="Others"
+                    android:textSize="@dimen/_13sdp"/>
+
+
+            </RadioGroup>
 
             <EditText
-                android:layout_below="@id/regs_others_radio"
+                android:layout_below="@id/rdgrp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/regs_mob"

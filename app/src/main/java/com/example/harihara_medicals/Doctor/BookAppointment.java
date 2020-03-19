@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,9 +19,11 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.harihara_medicals.HomePageActivity;
+import com.example.harihara_medicals.Model.User;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Retrofit.ApiUtils;
 import com.example.harihara_medicals.Retrofit.ProductApi;
+import com.example.harihara_medicals.utils.SharedPreferencesManager;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -38,6 +41,7 @@ public class BookAppointment extends AppCompatActivity {
     CalendarView dr_date;
     TextView settime;
     ImageView back_icon;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +62,18 @@ public class BookAppointment extends AppCompatActivity {
         dr_ex=findViewById(R.id.book_appointment_dr_exp);
         dr_fee=findViewById(R.id.book_appointment_dr_fees);
         cal_date=findViewById(R.id.calender_date);
+
+        user = SharedPreferencesManager.getCurrentUser();
+        String user_id = user.getUid();
+
         Intent intent=getIntent();
         String Dr_name=intent.getStringExtra("Dr_name");
         String Dr_spc=intent.getStringExtra("Dr_spc");
         String Dr_fees=intent.getStringExtra("Dr_fees");
         String Dr_epx=intent.getStringExtra("Dr_epx");
         String did = intent.getStringExtra("docid");
-        dr_fee.setText(Dr_fees+"Rs");
-        dr_ex.setText(Dr_epx+"yrs of epx");
+        dr_fee.setText(Dr_fees);
+        dr_ex.setText(Dr_epx);
         dr_name.setText(Dr_name);
         dr_spc.setText(Dr_spc);
         settime=findViewById(R.id.book_appointment_time1);
@@ -111,16 +119,17 @@ public class BookAppointment extends AppCompatActivity {
         book_appointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendpost(did, "12", dr_name.getText().toString(), dr_spc.getText().toString(), settime.getText().toString(), cal_date.getText().toString());
-                //Toast.makeText(BookAppointment.this, ""+did+" "+cal_date.getText().toString()+" "+settime.getText().toString(), Toast.LENGTH_SHORT).show();
+                Log.d("fees", dr_fee+" "+dr_ex);
+                sendpost(did, ""+user_id, dr_name.getText().toString(), dr_spc.getText().toString(), settime.getText().toString(), cal_date.getText().toString(), Dr_fees, Dr_epx);
+                //Toast.makeText(BookAppointment.this, " "+Dr_epx+" "+Dr_fees, Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
-    private void sendpost(String docid, String usrid, String dname, String spe, String time, String date){
+    private void sendpost(String docid, String usrid, String dname, String spe, String time, String date, String fees, String exp){
         //ProductApi productApi= ApiUtils.getProductApi();
-        Call<Void> call=ApiUtils.getProductApi().makeAppointment(docid, usrid, dname, spe, time, date);
+        Call<Void> call=ApiUtils.getProductApi().makeAppointment(docid, usrid, dname, spe, time, date, fees, exp);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

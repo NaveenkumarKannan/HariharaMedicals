@@ -28,7 +28,7 @@
                 android:padding="@dimen/_10sdp"
                 android:maxLines="1"
                 android:inputType="text"
-                android:hint="@string/search_doctors"
+                android:hint="Search for Medicine"
                 android:fontFamily="@font/montserrat_bold"
                 android:drawableLeft="@drawable/ic_search_black_24dp"
                 android:layout_marginTop="@dimen/_90sdp"/>
@@ -38,7 +38,7 @@
                 android:id="@+id/product_textview1"
                 android:layout_below="@id/product_search"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="@string/search_doctors"
+                android:text="Search for Medicine"
                 android:textStyle="bold"
                 android:textSize="@dimen/_15sdp"
                 android:padding="@dimen/_10sdp"

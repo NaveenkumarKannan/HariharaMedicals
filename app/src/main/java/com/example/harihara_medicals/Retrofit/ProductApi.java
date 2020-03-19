@@ -2,6 +2,8 @@ package com.example.harihara_medicals.Retrofit;
 
 import com.example.harihara_medicals.Model.Doctor_list;
 import com.example.harihara_medicals.Model.LoginData;
+import com.example.harihara_medicals.Model.User;
+import com.example.harihara_medicals.utils.SharedPreferencesManager;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -43,11 +45,13 @@ public interface ProductApi {
             @Field("dname") String dname,
             @Field("spcl") String spcl,
             @Field("time") String time,
-            @Field("date") String date);
+            @Field("date") String date,
+            @Field("fees") String fees,
+            @Field("exp") String exp);
 
     @FormUrlEncoded
-    @POST("reminder.php")
-    Call<Void> getReminder(
+    @POST("make_rem.php")
+    Call<Void> makeReminder(
             @Field("desc") String desc,
             @Field("date") String date,
             @Field("title") String title,
@@ -57,8 +61,9 @@ public interface ProductApi {
     @GET("reminder.php")
     Call<String> getReminders();
 
-    @GET("appointment.php")
-    Call<String> getAppoinments();
+    @FormUrlEncoded
+    @POST("appointment.php")
+    Call<String> getAppoinments(@Field("uid") String uid);
 
     @FormUrlEncoded
     @POST("cart.php")
@@ -93,6 +98,22 @@ public interface ProductApi {
                              //@Part("bmi") RequestBody bmi,
                              @Part("user_id") RequestBody userId,
                              @Part("phone") RequestBody phone);
+
+    @FormUrlEncoded
+    @POST("edit_user.php")
+    Call<String> edtUserinfo(@Field("fname") String fname,
+                             @Field("lname") String lname,
+                             @Field("dob") String dob,
+                             @Field("mail") String mail,
+                             @Field("address") String address,
+                             @Field("gender") String gender,
+                             @Field("current_height") String current_height,
+                             @Field("current_weight") String current_weight,
+                             @Field("dname") String dname,
+                             @Field("bp") String bp,
+                             @Field("sugar") String sugar,
+                             @Field("user_id") String user_id
+                             );
 
 
 }

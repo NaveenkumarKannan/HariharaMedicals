@@ -35,7 +35,7 @@ import java.io.File;
 import java.util.Locale;
 
 public class UserFragment extends Fragment {
-    private TextView user_record,edit_details,feedback,language;
+    private TextView user_record,edit_details,feedback,language,invite,about;
     private  TextView logout,user_name,user_num;
     FirebaseAuth  auth;
     CircleImageView user_img;
@@ -130,6 +130,26 @@ public class UserFragment extends Fragment {
                     }
                 });
                 builder.create().show();
+            }
+        });
+        invite = view.findViewById(R.id.user_invite);
+        invite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent invite = new Intent(Intent.ACTION_SEND);
+                invite.setType("text/plain");
+                invite.putExtra(Intent.EXTRA_TEXT, "url here");
+                startActivity(invite);
+            }
+        });
+
+        about = view.findViewById(R.id.user_about);
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.google.com/search?q=HariHara%20Medicals");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             }
         });
         return view;

@@ -143,11 +143,11 @@ public class CalenderFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         try {
-                            sendpost(reminder_title.getText().toString(),reminder_date.getText().toString(),reminder_description.getText().toString(),reminder_location.getText().toString(),reminder_time.getText().toString());
+                            sendpost(reminder_title.getText().toString(),reminder_time.getText().toString(),reminder_date.getText().toString(),reminder_location.getText().toString(),reminder_description.getText().toString());
                         }catch (IOException e){
                             e.printStackTrace();
                         }
-                        Toast.makeText(getContext(),"Remainder Done",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getContext(),"Remainder Done",Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
                 });
@@ -242,23 +242,23 @@ public class CalenderFragment extends Fragment {
     }
 
     private void updateLabel() {
-            String myfromat="yy/MM/dd";
+            String myfromat="yyyy-MM-dd";
             SimpleDateFormat sdf=new SimpleDateFormat(myfromat, Locale.UK);
             reminder_date.setText(sdf.format(mycalender.getTime()));
 
     }
 
     private void sendpost(String title, String time, String date, String loc, String desc) throws  IOException {
-        Call<Void> call= ApiUtils.getProductApi().getReminder(title, time, date, loc, desc);
-        call.enqueue(new Callback<Void>() {
+        Call<Void> mkrem = ApiUtils.getProductApi().makeReminder(desc, date, title, loc, time);
+        mkrem.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Log.i("success","done");
+                Toast.makeText(getContext(),"Remainder Done",Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Log.e("failure",t.getMessage());
+                Toast.makeText(getContext(),"Try again",Toast.LENGTH_SHORT).show();
             }
         });
     }

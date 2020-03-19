@@ -1,7 +1,7 @@
 package com.example.harihara_medicals.Model;
 
 public class Doctor_list {
-    private String did,doctor_name,doctor_spc,doctor_num1,doctor_num2,doctor_address,doctor_fees,doctor_exprience;
+    private String did,doctor_name,doctor_spc,doctor_num1,doctor_num2,doctor_address,doctor_fees,doctor_exprience, doctor_qu;
 
     public String getDid() {
         return did;
@@ -68,5 +68,13 @@ public class Doctor_list {
 
     public void setDoctor_num2(String doctor_num2) {
         this.doctor_num2 = doctor_num2;
+    }
+
+    public String getDoctor_qu() {
+        return doctor_qu;
+    }
+
+    public void setDoctor_qu(String doctor_qu) {
+        this.doctor_qu = doctor_qu;
     }
 }
