@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.harihara_medicals.Adapters.My_appoinment_list_adaptor;
 import com.example.harihara_medicals.Model.My_appoinment_list;
@@ -26,16 +29,31 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class My_appointment extends AppCompatActivity {
+
     private My_appoinment_list_adaptor my_appoinment_list_adaptor;
     private RecyclerView recyclerView;
+    private ImageView bk_btn;
+    private TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_appointment);
-        recyclerView = findViewById(R.id.my_appointment_recy);
-        getResponse();
 
+        recyclerView = findViewById(R.id.my_appointment_recy);
+        bk_btn = findViewById(R.id.back_icon);
+        title = findViewById(R.id.title);
+
+        bk_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        title.setText("My Appointment");
+
+        getResponse();
     }
 
     private void getResponse() {
@@ -58,14 +76,11 @@ public class My_appointment extends AppCompatActivity {
                     if (response.body() != null) {
                         String jsonresponse = response.body().toString();
                         writedata(jsonresponse);
-
-
                     } else {
                         Log.i("onemptyresponce", "empty response");
                     }
                 }
             }
-
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
@@ -89,13 +104,15 @@ public class My_appointment extends AppCompatActivity {
                 my_appoinment_list.setDr_time(dataobj.getString("time"));
                 my_appoinment_list.setDr_date(dataobj.getString("date"));
                 my_appoinment_list.setDr_edu(dataobj.getString("qualification"));
+                my_appoinment_list.setApid(dataobj.getString("ap_id"));
                 my_appoinment_listArrayList.add(my_appoinment_list);
             }
 
-
-            my_appoinment_list_adaptor = new My_appoinment_list_adaptor(this,my_appoinment_listArrayList);
+            my_appoinment_list_adaptor = new My_appoinment_list_adaptor(my_appoinment_listArrayList, this);
             recyclerView.setAdapter(my_appoinment_list_adaptor);
+            my_appoinment_list_adaptor.updateList(my_appoinment_listArrayList);
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -151,11 +152,23 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 final Dialog dialog =new Dialog(getActivity());
                 dialog.setContentView(R.layout.home_dailog_box);
+
+                EditText up_dctname = dialog.findViewById(R.id.home_dialog_drname);
+                EditText up_dtvst = dialog.findViewById(R.id.home_dialog_visitdate);
+                EditText up_plc = dialog.findViewById(R.id.home_dialog_place);
+                EditText up_pur = dialog.findViewById(R.id.home_dialog_details);
+
                 Button uplpadbtn=dialog.findViewById(R.id.home_dialog_upload);
                 uplpadbtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getContext(),"upload done",Toast.LENGTH_SHORT).show();
+
+                        String upd = up_dctname.getText().toString();
+                        String upv = up_dtvst.getText().toString();
+                        String upp = up_plc.getText().toString();
+                        String upde = up_pur.getText().toString();
+
+                        Toast.makeText(getContext(),""+upd+" "+upv+" "+upp+" "+upd,Toast.LENGTH_SHORT).show();
                         text1.setVisibility(View.VISIBLE);
                         layout.setVisibility(View.GONE);
                         img1.setVisibility(View.VISIBLE);

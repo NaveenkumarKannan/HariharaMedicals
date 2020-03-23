@@ -90,6 +90,16 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/_20sdp"/>
 
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/ap_cancl_btn"
+                android:layout_margin="12dp"
+                android:drawableStart="@drawable/ic_cancel_white_24dp"
+                android:paddingLeft="18dp"
+                android:background="@drawable/cancel_btn_bg"
+                />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

@@ -2,6 +2,7 @@ package com.example.harihara_medicals.Retrofit;
 
 import com.example.harihara_medicals.Model.Doctor_list;
 import com.example.harihara_medicals.Model.LoginData;
+import com.example.harihara_medicals.Model.Response;
 import com.example.harihara_medicals.Model.User;
 import com.example.harihara_medicals.utils.SharedPreferencesManager;
 
@@ -99,21 +100,28 @@ public interface ProductApi {
                              @Part("user_id") RequestBody userId,
                              @Part("phone") RequestBody phone);
 
-    @FormUrlEncoded
+    @Multipart
     @POST("edit_user.php")
-    Call<String> edtUserinfo(@Field("fname") String fname,
-                             @Field("lname") String lname,
-                             @Field("dob") String dob,
-                             @Field("mail") String mail,
-                             @Field("address") String address,
-                             @Field("gender") String gender,
-                             @Field("current_height") String current_height,
-                             @Field("current_weight") String current_weight,
-                             @Field("dname") String dname,
-                             @Field("bp") String bp,
-                             @Field("sugar") String sugar,
-                             @Field("user_id") String user_id
-                             );
+    Call<LoginData> edtUserinfo(@Part MultipartBody.Part imageFile,
+                             @Part("fname") RequestBody fname,
+                             @Part("lname") RequestBody lname,
+                             @Part("dob") RequestBody dob,
+                             @Part("mail") RequestBody mail,
+                             @Part("address") RequestBody address,
+                             @Part("gender") RequestBody gender,
+                             @Part("current_height") RequestBody current_height,
+                             @Part("current_weight") RequestBody current_weight,
+                             @Part("sugar") RequestBody sugar,
+                             @Part("dname") RequestBody dname,
+                             @Part("bp") RequestBody bp,
+                             @Part("user_id") RequestBody user_id);
 
+    @Multipart
+    @POST("mrecords.php")
+    Call<Response> mrecords(@Part MultipartBody.Part imageFile, @Part("userid") RequestBody userid);
+
+    @FormUrlEncoded
+    @POST("canclAp.php")
+    Call<String> cancelAppointment(@Field("apid") String apid);
 
 }

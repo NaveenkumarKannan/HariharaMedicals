@@ -5,19 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Medicine.MedicalRecords">
-    <ImageView
+
+    <RelativeLayout
+        android:id="@+id/border_above"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
         android:background="#808080"
-        android:id="@+id/record_img"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Medical Records"
-        android:padding="@dimen/_10sdp"
-        android:textColor="@color/colorwhite"
-        android:fontFamily="@font/montserrat_medium"
-        android:textSize="30dip"/>
+        android:layout_height="55dp"
+        android:clickable="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:id="@+id/back_icon"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:fontFamily="font/verdana.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:id="@+id/title"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,22 +57,68 @@
             android:textSize="@dimen/_15sdp"
             android:textAlignment="center"
             android:id="@+id/record_line"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Upload Documents"
-            android:id="@+id/record_upload_btn"
-            android:layout_below="@id/record_line"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:paddingRight="@dimen/_40sdp"
-            android:paddingLeft="@dimen/_40sdp"
-            android:fontFamily="@font/montserrat_bold"
-            android:textColor="@color/colorwhite"
-            android:background="@drawable/otp_bg_btn"/>
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preview"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:id="@+id/pretxt"
+            android:visibility="invisible"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/preview"
+            android:layout_below="@id/pretxt"
+            android:layout_marginBottom="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/preview"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose file"
+                android:id="@+id/chooose"
+                android:layout_margin="8dp"
+                android:background="@drawable/otp_bg_btn"
+                android:textColor="#ffffff"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload"
+                android:id="@+id/record_upload_btn"
+                android:layout_margin="8dp"
+                android:background="@drawable/otp_bg_btn"
+                android:textColor="#ffffff"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>

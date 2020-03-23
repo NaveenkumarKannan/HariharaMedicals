@@ -16,6 +16,7 @@ import com.example.harihara_medicals.Model.Medicien_list;
 import com.example.harihara_medicals.R;
 
 public class MedicienFragment extends Fragment {
+
     private Medicien_list medicienlist;
     private RecyclerView recyclerView;
     private MedicienAdapter medicienAdapter;

@@ -1,16 +1,24 @@
 package com.example.harihara_medicals;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -22,22 +30,34 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.harihara_medicals.Medicine.MedicalRecords;
+import com.example.harihara_medicals.Model.LoginData;
 import com.example.harihara_medicals.Model.User;
 import com.example.harihara_medicals.Retrofit.ApiUtils;
+import com.example.harihara_medicals.utils.BitmapUtils;
+import com.example.harihara_medicals.utils.CropImageRequest;
+import com.example.harihara_medicals.utils.DirManager;
+import com.example.harihara_medicals.utils.FireManager;
 import com.example.harihara_medicals.utils.SharedPreferencesManager;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.mukesh.permissions.EasyPermissions;
+import com.mukesh.permissions.OnPermissionListener;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
+
+import static com.example.harihara_medicals.utils.Util.log;
 
 public class Edit_details extends AppCompatActivity {
-    //FirebaseUser user;
-    //EditText number_bg;
+
     EditText firstname, lastname, dob, email, address, drname, height, weight, blood_pressure, sugar_level;
     RadioButton rb_ml, rb_fl, rb_ot;
     ImageView res_pro_pic;
@@ -61,6 +81,8 @@ public class Edit_details extends AppCompatActivity {
             String num=user.getPhoneNumber();
             number_bg.setText(num);
         }*/
+
+        init();
 
         firstname = findViewById(R.id.regs_firstname);
         lastname = findViewById(R.id.regs_lastname);
@@ -108,83 +130,212 @@ public class Edit_details extends AppCompatActivity {
             rb_ot.setChecked(true);
         }
 
-        final Calendar myCalendar = Calendar.getInstance();
-
-        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                  int dayOfMonth) {
-                // TODO Auto-generated method stub
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, monthOfYear);
-                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                mycalender.set(Calendar.YEAR, year);
+                mycalender.set(Calendar.MONTH, month);
+                mycalender.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
                 updateLabel();
             }
-
         };
 
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new DatePickerDialog(Edit_details.this, date, myCalendar
-                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+                new DatePickerDialog(Edit_details.this, date, mycalender.get(Calendar.MONTH),
+                        mycalender.get(Calendar.DAY_OF_MONTH), mycalender.get(Calendar.YEAR)).show();
+            }
+        });
+
+        res_pro_pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (easyPermissions.hasPermission(permissions)) {
+                    //openGallery();
+                    pickImages();
+                } else {
+                    Toast.makeText(Edit_details.this, "Storage permission is needed to select the image", Toast.LENGTH_SHORT).show();
+                    easyPermissions.request(permissions);
+                }
             }
         });
 
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if(rb_ml.isChecked()){
-                    g_ender = "Male";
-                }
-
-                else if(rb_fl.isChecked()){
-                    g_ender = "Female";
-                }
-
-                else if(rb_ot.isChecked()){
-                    g_ender = "Others";
-                }
-
-                //Toast.makeText(Edit_details.this, ""+g_ender, Toast.LENGTH_SHORT).show();
-                updateUsrinfo(firstname.getText().toString(), lastname.getText().toString(), dob.getText().toString(),
-                                email.getText().toString(), address.getText().toString(), g_ender,
-                                height.getText().toString(), weight.getText().toString(), drname.getText().toString(),
-                                blood_pressure.getText().toString(), sugar_level.getText().toString(), user.getUid());
-
-                //SharedPreferencesManager.setEmail(email.getText().toString());
-
-                finish();
-
-            }
-        });
-
-    }
-
-    private void updateUsrinfo(String fname, String lname, String dob, String mail, String address, String gender, String current_height, String current_weight, String dname, String bp, String sugar, String user_id) {
-
-        Call<String> call = ApiUtils.getScalarProductApi().edtUserinfo(fname, lname, dob, mail, address, gender, current_height, current_weight, dname, bp, sugar, user_id);
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Toast.makeText(Edit_details.this, "Updated successfully"+response.message().toString(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(Edit_details.this, ""+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                sendPost();
             }
         });
 
     }
 
     private void updateLabel() {
-        String myFormat = "MM/dd/yy"; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        String myfromat = "MM/dd/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myfromat, Locale.UK);
         dob.setText(sdf.format(mycalender.getTime()));
     }
 
+    private void init() {
+        easyPermissions = new EasyPermissions.Builder()
+                .with(this)
+                .listener(new OnPermissionListener() {
+                    @Override
+                    public void onAllPermissionsGranted(@NonNull List<String> list) {
+
+                    }
+
+                    @Override
+                    public void onPermissionsGranted(@NonNull List<String> list) {
+
+                    }
+
+                    @Override
+                    public void onPermissionsDenied(@NonNull List<String> list) {
+
+                    }
+                })
+                .build();
+        easyPermissions.request(permissions);
+    }
+
+    private void pickImages() {
+        CropImageRequest.getCropImageRequest().start(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri uri = data.getData();
+            CropImageRequest.getCropImageRequest(uri).start(this);
+        }
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                Uri uri = result.getUri();
+                fileUri = uri;
+                if (fileUri != null)
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                        res_pro_pic.setImageBitmap(bitmap);
+
+                        filePath = BitmapUtils.getImageFilePath(uri, Edit_details.this);
+                        log("Path = " + filePath);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+            }
+        }
+    }
+
+    private void sendPost() {
+
+        if(rb_ml.isChecked()){
+            g_ender = "Male";
+        }
+
+        else if(rb_fl.isChecked()){
+            g_ender = "Female";
+        }
+
+        else if(rb_ot.isChecked()){
+            g_ender = "Others";
+        }
+
+        String path = filePath;
+        String loc = SharedPreferencesManager.getUserLocalPhoto();
+
+        File file;
+
+        if (path == null) {
+            file = new File(loc);
+            //Toast.makeText(this, ""+loc, Toast.LENGTH_SHORT).show();
+            log("Path null");
+        } else {
+            file = new File(path);
+            //Toast.makeText(this, ""+path, Toast.LENGTH_SHORT).show();
+            log("Path not null");
+        }
+
+        user = SharedPreferencesManager.getCurrentUser();
+        String user_id = user.getUid();
+
+        RequestBody userid = RequestBody.create(MediaType.parse("text/plain"), user_id);
+        RequestBody f_name = RequestBody.create(MediaType.parse("text/plain"), firstname.getText().toString());
+        RequestBody l_name = RequestBody.create(MediaType.parse("text/plain"), lastname.getText().toString());
+        RequestBody d_o_b = RequestBody.create(MediaType.parse("text/plain"), dob.getText().toString());
+        RequestBody gen = RequestBody.create(MediaType.parse("text/plain"), g_ender);
+        RequestBody e_mail = RequestBody.create(MediaType.parse("text/plain"), email.getText().toString());
+        RequestBody user_address = RequestBody.create(MediaType.parse("text/plain"), address.getText().toString());
+        RequestBody h_eight = RequestBody.create(MediaType.parse("text/plain"), height.getText().toString());
+        RequestBody w_eight = RequestBody.create(MediaType.parse("text/plain"), weight.getText().toString());
+        RequestBody sugarlevel = RequestBody.create(MediaType.parse("text/plain"), sugar_level.getText().toString());
+        RequestBody bp = RequestBody.create(MediaType.parse("text/plain"), blood_pressure.getText().toString());
+        RequestBody bmi = RequestBody.create(MediaType.parse("text/plain"), blood_pressure.getText().toString());
+        RequestBody d_name = RequestBody.create(MediaType.parse("text/plain"), drname.getText().toString());
+        //RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
+        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
+
+        Toast.makeText(Edit_details.this, " "+f_name+" "+l_name+" "+d_o_b+" "+g_ender, Toast.LENGTH_SHORT).show();
+
+        Call<LoginData> call = ApiUtils.getProductApi().edtUserinfo(body, f_name, l_name, d_o_b, e_mail, user_address, gen, h_eight, w_eight, sugarlevel, d_name, bp, userid);
+
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading");
+        progressDialog.show();
+
+        call.enqueue(new Callback<LoginData>() {
+            @Override
+            public void onResponse(Call<LoginData> call, Response<LoginData> response) {
+                LoginData res = response.body();
+                User user = res.getUser();
+                Toast.makeText(Edit_details.this, "Ok "+res.getMessage(), Toast.LENGTH_SHORT).show();
+
+                try {
+                    final File file = DirManager.generateUserProfileImage();
+
+                    int IMAGE_QUALITY_COMPRESS = 30;
+                    BitmapUtils.compressImage(fileUri.getPath(), file, IMAGE_QUALITY_COMPRESS);
+
+                    SharedPreferencesManager.saveMyPhoto(file.getPath());
+                }catch (Exception e){
+                    e.printStackTrace();
+                    log(e.getMessage());
+                }
+
+                SharedPreferencesManager.setCurrentUser(user);
+
+//                try {
+//                    SharedPreferencesManager.setFirstName(firstname.getText().toString());
+//                    SharedPreferencesManager.setLastName(lastname.getText().toString());
+//                    SharedPreferencesManager.setDob(dob.getText().toString());
+//                    SharedPreferencesManager.setGender(g_ender);
+//                    SharedPreferencesManager.setEmail(email.getText().toString());
+//                    SharedPreferencesManager.setAddress(address.getText().toString());
+//                    SharedPreferencesManager.setHeight(height.getText().toString());
+//                    SharedPreferencesManager.setWeight(weight.getText().toString());
+//                    SharedPreferencesManager.setBpLevel(blood_pressure.getText().toString());
+//                    SharedPreferencesManager.setSugarLevel(sugar_level.getText().toString());
+//                    SharedPreferencesManager.setPreferredDoctorName(drname.getText().toString());
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//                    log(e.getMessage());
+//                }
+
+                finish();
+                progressDialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(Call<LoginData> call, Throwable t) {
+                Toast.makeText(Edit_details.this, "Er "+t.toString(), Toast.LENGTH_SHORT).show();
+                finish();
+                progressDialog.dismiss();
+            }
+        });
+    }
 }

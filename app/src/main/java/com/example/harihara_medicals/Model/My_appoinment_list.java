@@ -1,7 +1,15 @@
 package com.example.harihara_medicals.Model;
 
 public class My_appoinment_list {
-    private String dr_name,dr_spl,dr_date,dr_time,dr_fees,dr_ex,dr_dept,dr_edu;
+    private String apid, dr_name,dr_spl,dr_date,dr_time,dr_fees,dr_ex,dr_dept,dr_edu;
+
+    public String getApid() {
+        return apid;
+    }
+
+    public void setApid(String apid) {
+        this.apid = apid;
+    }
 
     public String getDr_name() {
         return dr_name;
