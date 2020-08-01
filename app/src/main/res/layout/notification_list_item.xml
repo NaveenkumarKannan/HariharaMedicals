@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="4dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/img"
+                android:src="@drawable/visa"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/notfytxt"
+                android:padding="4dp"
+                android:layout_toRightOf="@id/img"
+                android:text="This is notification This is notification This is notification This is notification This is notification"
+                android:autoSizeTextType="uniform"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:fontFamily="@font/montserrat_medium"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/time"
+                android:text="03:30"
+                android:fontFamily="@font/montserrat_medium"
+                android:textStyle="italic"
+                android:textSize="12sp"
+                android:layout_below="@id/notfytxt"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

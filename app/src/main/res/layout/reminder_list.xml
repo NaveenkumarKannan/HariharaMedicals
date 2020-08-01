@@ -1,32 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
-        android:layout_margin="@dimen/_15sdp">
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="3dp">
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10sdp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fsadf"
+            android:text="Title"
             android:fontFamily="@font/montserrat_medium"
-            android:textSize="@dimen/_18sdp"
+            android:textSize="21sp"
+            android:textStyle="bold"
             android:id="@+id/reminder_list_name"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_below="@id/reminder_list_name"
+            android:textSize="13sp"
+            android:id="@+id/reminder_list_desc"
+            android:padding="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10-02-2020"
+            android:layout_below="@id/reminder_list_desc"
+            android:id="@+id/reminder_list_date"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10.20 am"
             android:fontFamily="@font/montserrat_medium"
-            android:textSize="@dimen/_18sdp"
+            android:textSize="18sp"
             android:id="@+id/reminder_list_time"
+            android:layout_below="@id/reminder_list_desc"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
             />
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/dltbtn"
+            android:background="@drawable/cancel_btn_bg"
+            android:drawableStart="@drawable/ic_cancel_white_24dp"
+            android:paddingLeft="8dp"
+            />
+
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_toLeftOf="@id/dltbtn"
+                android:id="@+id/addtocalbtn"
+                android:background="@drawable/calbtnbg"
+                android:drawableStart="@drawable/ic_date_range_black_24dp"
+                android:paddingLeft="8dp"
+                android:layout_marginRight="10dp"
+                />
+
         </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

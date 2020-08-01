@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Notification">
+
+    <RelativeLayout
+        android:id="@+id/border_above"
+        android:layout_width="match_parent"
+        android:background="#808080"
+        android:layout_height="55dp"
+        android:clickable="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:id="@+id/back_icon"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:fontFamily="font/verdana.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="General Doctors"
+            android:textSize="18sp"
+            android:id="@+id/title"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressbar"
+        android:layout_centerInParent="true"
+        />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swdrefnot"
+        android:layout_below="@id/border_above"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/noReview"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No notifications"
+        android:layout_centerInParent="true"
+        android:id="@+id/txtNonotification"
+        android:fontFamily="@font/montserrat_medium"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

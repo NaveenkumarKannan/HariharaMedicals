@@ -1,10 +1,11 @@
 package com.example.harihara_medicals.Retrofit;
 
-import com.example.harihara_medicals.Model.Doctor_list;
 import com.example.harihara_medicals.Model.LoginData;
+import com.example.harihara_medicals.Model.MRecords;
+import com.example.harihara_medicals.Model.ModelRes;
+import com.example.harihara_medicals.Model.Notif;
 import com.example.harihara_medicals.Model.Response;
-import com.example.harihara_medicals.Model.User;
-import com.example.harihara_medicals.utils.SharedPreferencesManager;
+import com.google.gson.JsonObject;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -57,10 +58,12 @@ public interface ProductApi {
             @Field("date") String date,
             @Field("title") String title,
             @Field("loc") String loc,
-            @Field("time") String time);
+            @Field("time") String time,
+            @Field("userid") String userid);
 
-    @GET("reminder.php")
-    Call<String> getReminders();
+    @FormUrlEncoded
+    @POST("reminder.php")
+    Call<String> getReminders(@Field("uid") String uid);
 
     @FormUrlEncoded
     @POST("appointment.php")
@@ -78,8 +81,9 @@ public interface ProductApi {
     Call<LoginData> checkLogin(
             @Field("user_id") String pname);
 
-    @GET("cart.php")
-    Call<String> getItem();
+    @FormUrlEncoded
+    @POST("cart.php")
+    Call<String> getItem(@Field("userid") String userid);
 
     @Multipart
     @POST("register.php")
@@ -123,5 +127,47 @@ public interface ProductApi {
     @FormUrlEncoded
     @POST("canclAp.php")
     Call<String> cancelAppointment(@Field("apid") String apid);
+
+    @FormUrlEncoded
+    @POST("getmrecords.php")
+    Call<String> getmrecords(@Field("userid") String userid);
+
+    @FormUrlEncoded
+    @POST("getnotification.php")
+    Call<String> getnotification(@Field("userid") String userid);
+
+    @FormUrlEncoded
+    @POST("dltreminder.php")
+    Call<String> deleteReminder(@Field("reid") String reid);
+
+    @FormUrlEncoded
+    @POST("addtocart.php")
+    Call<String> addtcart(@Field("userid") String userid, @Field("prid") String prid, @Field("prname") String prname, @Field("prcount") String prcount, @Field("prprice") String prprice);
+
+    @FormUrlEncoded
+    @POST("remcart.php")
+    Call<String> remvcart(@Field("cid") String cid);
+
+    @FormUrlEncoded
+    @POST("plcorder.php")
+    Call<ModelRes> plcord(@Field("userid") String userid,
+                          @Field("topr") String topr);
+
+    @FormUrlEncoded
+    @POST("myorders.php")
+    Call<String> myorders(@Field("uid") String uid);
+
+    @Multipart
+    @POST("uploadpres.php")
+    Call<Response> uploadpre(@Part MultipartBody.Part image,
+                             @Part("user_id") RequestBody user_id,
+                             @Part("dname") RequestBody dname,
+                             @Part("vdate") RequestBody vdate,
+                             @Part("place") RequestBody place,
+                             @Part("pvisit") RequestBody pvisit);
+
+    @GET("listdctrs.php")
+    Call<String> listDoctors();
+
 
 }

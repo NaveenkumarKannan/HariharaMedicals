@@ -1,10 +1,14 @@
 package com.example.harihara_medicals.ui.Calender;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -20,6 +26,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.harihara_medicals.Retrofit.ApiUtils;
 import com.example.harihara_medicals.DbHander;
@@ -27,6 +34,8 @@ import com.example.harihara_medicals.Retrofit.ProductApi;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Model.Reminder_list;
 import com.example.harihara_medicals.Adapters.Reminder_list_Adaptor;
+import com.example.harihara_medicals.utils.AlarmReceiver;
+import com.example.harihara_medicals.utils.SharedPreferencesManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -57,14 +66,24 @@ public class CalenderFragment extends Fragment {
     final Calendar mycalender=Calendar.getInstance();
     private Reminder_list_Adaptor reminder_list_adaptor;
     private RecyclerView recyclerView;
+    private ProgressBar calprogrs;
+    private SwipeRefreshLayout refreshReminders;
 /*
     private final static Handler handler = new Handler();
 */
+    private String usrid = SharedPreferencesManager.getCurrentUser().getUid();
 
+    private int notificationId = 1;
+    private RelativeLayout remly, emremly;
 
     public  View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_calender,null);
+
+        calprogrs = root.findViewById(R.id.calprogress);
+        refreshReminders = root.findViewById(R.id.calremswip);
+        remly = root.findViewById(R.id.remlayout);
+        emremly = root.findViewById(R.id.emremly);
 
         calendarView=root.findViewById(R.id.calender_calendar);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -93,12 +112,13 @@ public class CalenderFragment extends Fragment {
                         updateLabel();
                     }
                 };
+
                 reminder_title=dialog.findViewById(R.id.remainder_title);
                 reminder_time=dialog.findViewById(R.id.remainder_time);
                 reminder_date=dialog.findViewById(R.id.remainder_remainder);
-
                 reminder_description=dialog.findViewById(R.id.remainder_description);
                 reminder_location=dialog.findViewById(R.id.remainder_location);
+
                 reminder_time.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -129,6 +149,7 @@ public class CalenderFragment extends Fragment {
 
                     }
                 });
+
                 reminder_date.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -142,6 +163,37 @@ public class CalenderFragment extends Fragment {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        if(TextUtils.isEmpty(reminder_title.getText().toString())){
+                            reminder_title.setError("Please enter title");
+                            reminder_title.requestFocus();
+                            return;
+                        }
+
+                        if(TextUtils.isEmpty(reminder_time.getText().toString())){
+                            reminder_time.setError("Please choose time");
+                            reminder_time.requestFocus();
+                            return;
+                        }
+
+                        if(TextUtils.isEmpty(reminder_date.getText().toString())){
+                            reminder_date.setError("Please choose date");
+                            reminder_date.requestFocus();
+                            return;
+                        }
+
+                        if(TextUtils.isEmpty(reminder_description.getText().toString())){
+                            reminder_description.setError("Please enter description");
+                            reminder_description.requestFocus();
+                            return;
+                        }
+
+                        if(TextUtils.isEmpty(reminder_location.getText().toString())){
+                            reminder_location.setError("Please enter location");
+                            reminder_location.requestFocus();
+                            return;
+                        }
+
                         try {
                             sendpost(reminder_title.getText().toString(),reminder_time.getText().toString(),reminder_date.getText().toString(),reminder_location.getText().toString(),reminder_description.getText().toString());
                         }catch (IOException e){
@@ -168,11 +220,19 @@ public class CalenderFragment extends Fragment {
          };
          Handler.postDelayed(runnable, DELAY_TIME);*/
 
+        refreshReminders.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getResponce();
+                refreshReminders.setRefreshing(false);
+            }
+        });
+
         getResponce();
+
         return root;
 
     }
-
 
     private void getResponce() {
         /*Retrofit retrofit = new  Retrofit.Builder()
@@ -182,7 +242,7 @@ public class CalenderFragment extends Fragment {
         ProductApi api =retrofit.create(ProductApi.class);*/
         //ProductApi api =ApiUtils.getUrl();
         ProductApi api =ApiUtils.getScalarUrl();
-        Call<String> call=api.getReminders();
+        Call<String> call=api.getReminders(usrid);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -208,6 +268,7 @@ public class CalenderFragment extends Fragment {
     }
 
     private void writedata(String response) {
+        calprogrs.setVisibility(View.VISIBLE);
         try {
             log("Step 0");
             JSONObject obj=new JSONObject(response);
@@ -221,6 +282,9 @@ public class CalenderFragment extends Fragment {
                 log("Step 3");
                 reminder_list.setVisit_medical(dataobj.getString("title"));
                 reminder_list.setVisit_time(dataobj.getString("time"));
+                reminder_list.setRemdate(dataobj.getString("date"));
+                reminder_list.setRemdesc(dataobj.getString("description"));
+                reminder_list.setReminderid(dataobj.getString("id"));
 
                 reminder_listArrayList.add(reminder_list);
             }
@@ -229,9 +293,17 @@ public class CalenderFragment extends Fragment {
                 Dr_name.setText(Dr_name.getText()+doctor_listArrayList.get(j).getDoctor_name()+"\n");
 
             }*/
+
+           if(reminder_listArrayList.isEmpty()){
+               emremly.setVisibility(View.VISIBLE);
+           } else {
+               emremly.setVisibility(View.GONE);
+           }
+
             reminder_list_adaptor= new Reminder_list_Adaptor(recyclerView.getContext(),reminder_listArrayList);
             recyclerView.setAdapter(reminder_list_adaptor);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+            calprogrs.setVisibility(View.GONE);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -245,11 +317,10 @@ public class CalenderFragment extends Fragment {
             String myfromat="yyyy-MM-dd";
             SimpleDateFormat sdf=new SimpleDateFormat(myfromat, Locale.UK);
             reminder_date.setText(sdf.format(mycalender.getTime()));
-
     }
 
     private void sendpost(String title, String time, String date, String loc, String desc) throws  IOException {
-        Call<Void> mkrem = ApiUtils.getProductApi().makeReminder(desc, date, title, loc, time);
+        Call<Void> mkrem = ApiUtils.getScalarUrl().makeReminder(desc, date, title, loc, time, usrid);
         mkrem.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

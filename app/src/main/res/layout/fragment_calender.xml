@@ -49,36 +49,64 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/calendar_layout1"
-                android:padding="@dimen/_10sdp">
+                android:id="@+id/remlayout">
+
                 <TextView
                     android:id="@+id/remainder"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_width="@dimen/_90sdp"
-                    android:layout_height="@dimen/_30sdp"
-                    android:text="REMAINDER"
-                    android:textSize="@dimen/_11sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REMINDER"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_margin="8dp"
                     android:background="@drawable/calendar_remainder"
-                    android:padding="@dimen/_6sdp"
                     android:textAlignment="center" />
 
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/remainder">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/reminder_recy"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_25sdp"/>x
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/calprogress"
+                    />
 
-            </RelativeLayout>
-                </ScrollView>
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/remainder"
+                    android:id="@+id/calremswip">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/reminder_recy"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        />
+
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
         </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/emremly"
+        android:layout_below="@+id/calendar_layout1"
+        android:visibility="gone"
+        >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emptyaptxt"
+            android:text="Your reminder was empty"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_medium"
+            />
+
+    </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"

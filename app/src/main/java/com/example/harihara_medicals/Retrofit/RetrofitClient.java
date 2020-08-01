@@ -24,6 +24,7 @@ public class RetrofitClient {
             retrofit=new Retrofit.Builder()
                     .baseUrl(baseUrl)
                     .addConverterFactory(ScalarsConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
         return  retrofit;

@@ -8,4 +8,6 @@
     <color name="bg_bubble_watbot">#ecf0f1</color>
 
     <color name="cancel_btn_color">#ED815E</color>
+    <color name="uc">#808080</color>
+    <color name="uct">#808080</color>
 </resources>

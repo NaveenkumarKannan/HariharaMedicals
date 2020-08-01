@@ -1,9 +1,12 @@
 package com.example.harihara_medicals.Model;
 
 public class Medicien_list {
-    private String medicien_name,medicien_count,medicien_price, medicien_addto_cart, medicien_sub, medicien_add;
+
+    private String medicien_name, medicien_addto_cart, medicien_sub, medicien_add, med_id;
+    private int medicien_price, medicien_count;
 
     int medi_count=1;
+
     public int getMedi_count() {
         return medi_count;
     }
@@ -21,20 +24,20 @@ public class Medicien_list {
         this.medicien_name = medicien_name;
     }
 
-    public String getMedicien_count() {
-        return medicien_count;
-    }
-
-    public void setMedicien_count(String medicien_count) {
-        this.medicien_count = medicien_count;
-    }
-
-    public String getMedicien_price() {
+    public int getMedicien_price() {
         return medicien_price;
     }
 
-    public void setMedicien_price(String medicien_price) {
+    public void setMedicien_price(int medicien_price) {
         this.medicien_price = medicien_price;
+    }
+
+    public int getMedicien_count() {
+        return medicien_count;
+    }
+
+    public void setMedicien_count(int medicien_count) {
+        this.medicien_count = medicien_count;
     }
 
     public String getMedicien_addto_cart() {
@@ -61,5 +64,11 @@ public class Medicien_list {
         this.medicien_add = medicien_add;
     }
 
+    public String getMed_id() {
+        return med_id;
+    }
 
+    public void setMed_id(String med_id) {
+        this.med_id = med_id;
+    }
 }

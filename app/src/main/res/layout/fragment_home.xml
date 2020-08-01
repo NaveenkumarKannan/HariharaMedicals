@@ -13,17 +13,19 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_120sdp"
+            android:layout_height="wrap_content"
             android:background="@drawable/layout_bg">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/home_user"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/back_avatar"
+                android:src="@drawable/user"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/user"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"/>
+                />
+
             <!--<ImageView
                 android:id="@+id/home_user"
                 android:layout_width="@dimen/_35sdp"
@@ -43,11 +45,11 @@
                 android:background="@drawable/ic_notifications_black_24dp" />
 
             <ImageView
-                android:layout_width="@dimen/_120sdp"
-                android:layout_height="@dimen/_45sdp"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_60sdp"
-                android:background="@drawable/harihara_new_logo" />
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/home_menu"
+                android:background="@drawable/h_plus" />
 
             <ImageView
                 android:id="@+id/home_menu"
@@ -82,9 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_margin="@dimen/_16sdp"
-
-                    app:cardCornerRadius="@dimen/_8sdp">
+                    >
 
                     <com.smarteist.autoimageslider.SliderView
                         android:id="@+id/imageSlider"
@@ -96,7 +96,6 @@
                         app:sliderCircularHandlerEnabled="true"
                         app:sliderIndicatorAnimationDuration="3000"
                         app:sliderIndicatorGravity="center_horizontal|bottom"
-                        app:sliderIndicatorMargin="@dimen/_15sdp"
                         app:sliderIndicatorOrientation="horizontal"
                         app:sliderIndicatorPadding="@dimen/_3sdp"
                         app:sliderIndicatorRadius="@dimen/_2sdp"
@@ -112,6 +111,7 @@
             <RelativeLayout
                 android:layout_marginTop="@dimen/_170sdp"
                 android:layout_width="match_parent"
+                android:id="@+id/health"
                 android:layout_height="@dimen/_90sdp">
 
                 <TextView
@@ -177,141 +177,174 @@
 
             </RelativeLayout>
 
-
-            <RelativeLayout
-                android:id="@+id/home_layout3"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_230sdp"
-                android:padding="@dimen/_40sdp">
+                android:layout_height="wrap_content">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="@dimen/_320sdp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="@dimen/_15sdp"
-
-                    >
+                    android:orientation="vertical">
 
                     <RelativeLayout
+                        android:id="@+id/home_layout3"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_130sdp"
-                        android:background="@drawable/gradian_clr"
-                        android:paddingLeft="@dimen/_30sdp"
-                        android:paddingTop="@dimen/_5sdp">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_230sdp"
+                        android:padding="@dimen/_40sdp">
 
-                        <TextView
-                            android:id="@+id/home_card2_your_health"
+                        <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/_10sdp"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            android:id="@+id/cardview_hlth"
+                            >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_130sdp"
+                                android:background="@drawable/gradian_clr"
+                                >
+
+                                <TextView
+                                    android:id="@+id/home_card2_your_health"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:text="@string/title_your_health"
+                                    android:textColor="#ffffff" />
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/home_card2_your_health"
+                                    android:id="@+id/bmi_rate_ly"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    >
+
+                                    <TextView
+                                        android:id="@+id/home_card2_bmi"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="@string/title_bmi"
+                                        android:visibility="gone"
+                                        android:textColor="#ffffff" />
+
+                                    <TextView
+                                        android:id="@+id/tv_bmi_rate"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="BMI 34"
+                                        android:textColor="#ffffff"
+                                        android:layout_toRightOf="@id/tv_bmi_rate"
+                                        />
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/tv_bmi_status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/bmi_rate_ly"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:background="@drawable/text_bg"
+                                    android:fontFamily="@font/montserrat_medium"
+                                    android:paddingLeft="@dimen/_10sdp"
+                                    android:paddingTop="@dimen/_5sdp"
+                                    android:paddingRight="@dimen/_10sdp"
+                                    android:paddingBottom="@dimen/_5sdp"
+                                    android:text="Normal"
+                                    android:textColor="#ffffff" />
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/tv_bmi_status"
+                                    android:layout_centerHorizontal="true"
+                                    android:paddingLeft="10dp"
+                                    android:paddingRight="10dp"
+                                    >
+
+                                    <TextView
+                                        android:id="@+id/home_card2_blood_pressure"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="@string/title_blood"
+                                        android:textColor="#ffffff" />
+
+                                    <TextView
+                                        android:id="@+id/home_card2_sugar_level"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_100sdp"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="@string/title_sugar"
+                                        android:textColor="#ffffff" />
+
+                                    <TextView
+                                        android:id="@+id/tv_blood_pressure_rate"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/home_card2_blood_pressure"
+                                        android:layout_marginLeft="@dimen/_30sdp"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="70"
+                                        android:textColor="#ffffff" />
+
+                                    <TextView
+                                        android:id="@+id/tv_sugar_level_rate"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/home_card2_blood_pressure"
+                                        android:layout_marginLeft="@dimen/_130sdp"
+                                        android:fontFamily="@font/montserrat_medium"
+                                        android:text="110"
+                                        android:textColor="#ffffff" />
+
+                                </RelativeLayout>
+
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <Button
+                            android:id="@+id/home_btn_livechat"
+                            android:layout_width="@dimen/_75sdp"
+                            android:layout_height="@dimen/_52sdp"
+                            android:background="@drawable/livechat"
                             android:fontFamily="@font/montserrat_bold"
-                            android:text="@string/title_your_health"
-                            android:textColor="#ffffff" />
-
-                        <TextView
-                            android:id="@+id/home_card2_bmi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/home_card2_your_health"
-                            android:layout_marginLeft="@dimen/_50sdp"
-                            android:layout_marginTop="@dimen/_6sdp"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/title_bmi"
-                            android:textColor="#ffffff" />
-
-                        <TextView
-                            android:id="@+id/tv_bmi_rate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/home_card2_your_health"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/_6sdp"
-                            android:layout_toRightOf="@id/home_card2_bmi"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:paddingLeft="@dimen/_30sdp"
-                            android:text="45"
-                            android:textColor="#ffffff" />
-
-                        <TextView
-                            android:id="@+id/tv_bmi_status"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/home_card2_bmi"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:background="@drawable/text_bg"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:paddingTop="@dimen/_5sdp"
-                            android:paddingRight="@dimen/_10sdp"
-                            android:paddingBottom="@dimen/_5sdp"
-                            android:text="Normal"
-                            android:textColor="#ffffff" />
-
-                        <TextView
-                            android:id="@+id/home_card2_blood_pressure"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_bmi_status"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/title_blood"
-                            android:textColor="#ffffff" />
-
-                        <TextView
-                            android:id="@+id/home_card2_sugar_level"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/tv_bmi_status"
-                            android:layout_marginLeft="@dimen/_100sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="@string/title_sugar"
-                            android:textColor="#ffffff" />
-
-                        <TextView
-                            android:id="@+id/tv_blood_pressure_rate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/home_card2_blood_pressure"
-                            android:layout_marginLeft="@dimen/_30sdp"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="70"
-                            android:textColor="#ffffff" />
-
-                        <TextView
-                            android:id="@+id/tv_sugar_level_rate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/home_card2_blood_pressure"
-                            android:layout_marginLeft="@dimen/_130sdp"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="110"
-                            android:textColor="#ffffff" />
-
+                            android:textColor="@color/colorwhite"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="40dp"
+                            android:layout_toEndOf="@id/cardview_hlth"/>
 
                     </RelativeLayout>
 
-                </androidx.cardview.widget.CardView>
-            </RelativeLayout>
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:id="@+id/voic"-->
+<!--                        >-->
 
-            <RelativeLayout
-                android:paddingStart="@dimen/_40sdp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_430sdp">
+<!--                        -->
+<!--                    </RelativeLayout>-->
 
-                <Button
-                    android:id="@+id/home_btn_livechat"
-                    android:layout_width="@dimen/_75sdp"
-                    android:layout_height="@dimen/_52sdp"
-                    android:background="@drawable/livechat"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:textColor="@color/colorwhite" />
+                </LinearLayout>
 
-            </RelativeLayout>
+            </HorizontalScrollView>
+
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

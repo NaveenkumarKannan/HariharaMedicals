@@ -36,22 +36,37 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/product_search"
-        android:layout_marginHorizontal="@dimen/_50sdp"
+        android:id="@+id/product_searchh"
+        android:layout_marginHorizontal="25dp"
         android:background="@drawable/res_border2"
         android:padding="@dimen/_15sdp"
         android:hint="Product"
         android:maxLines="1"
         android:drawableLeft="@drawable/ic_search_black_24dp"
         android:layout_marginTop="@dimen/_80sdp"/>
-    <androidx.recyclerview.widget.RecyclerView
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recy"
-        android:layout_below="@id/product_search"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:scrollbars="vertical">
+        android:id="@+id/swiperef"
+        android:layout_below="@id/product_searchh">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recy"
+            android:layout_below="@id/product_search"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:scrollbars="vertical"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/prbar"
+        android:layout_centerInParent="true"
+        />
 
 </RelativeLayout>

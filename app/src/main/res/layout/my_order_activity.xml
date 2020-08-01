@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Medicine.My_order_activity">
 
-
     <RelativeLayout
         android:id="@+id/border_above"
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,11 +17,11 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingRight="50dp"
+            android:padding="10dp"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_arrow_back_black_24dp"
             android:id="@+id/back_icon"
-            android:layout_marginLeft="5dp"/>
+            />
 
         <TextView
             android:fontFamily="font/verdana.ttf"
@@ -36,13 +35,36 @@
             android:textColor="@android:color/white" />
     </RelativeLayout>
 
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/my_order_recy"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/border_above"/>
+        android:layout_below="@id/border_above"
+        android:id="@+id/swiprefmyord">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_order_recy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progressbarmyorder"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emptymyordtxt"
+        android:visibility="gone"
+        android:text="My Order's was empty"
+        android:layout_centerInParent="true"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat_medium"
+        />
 
 </RelativeLayout>

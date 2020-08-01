@@ -11,10 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.harihara_medicals.Ar_product;
 import com.example.harihara_medicals.Medicine.Medicine;
 import com.example.harihara_medicals.R;
+import com.example.harihara_medicals.SearchProducts;
+import com.thekhaeng.pushdownanim.PushDownAnim;
 
 public class ProductFragment2 extends Fragment {
 
@@ -24,12 +27,22 @@ private EditText product_search;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, final Bundle savedInstanceState) {
         final  View view=inflater.inflate(R.layout.product_fragment2_fragment, null);
+
+        product_search = view.findViewById(R.id.product_search);
+
+        PushDownAnim.setPushDownAnimTo(product_search)
+                .setOnClickListener( new View.OnClickListener(){
+                    @Override
+                    public void onClick( View view ){
+                        startActivity( new Intent(getActivity(),Medicine.class));
+                    }
+                } );
+
         btn_medicine=view.findViewById(R.id.product_btn_Medicine);
         btn_medicine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                startActivity( new Intent(getActivity(),Medicine.class));
-
             }
         });
         btn_cosmetics=view.findViewById(R.id.product_btn_cosmetics);

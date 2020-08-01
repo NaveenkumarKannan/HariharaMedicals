@@ -34,31 +34,50 @@
 
     </RelativeLayout>
 
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_centerInParent="true">-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="MEDICAL RECORDS"-->
+<!--            android:fontFamily="@font/montserrat_bold"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:textSize="@dimen/_20sdp"-->
+<!--            android:id="@+id/record"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="@dimen/_330sdp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/record"-->
+<!--            android:text="Keep all your medical documents in one place and stop woorrying about losing then "-->
+<!--            android:fontFamily="@font/montserrat_medium"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:textSize="@dimen/_15sdp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:id="@+id/record_line"/>-->
+<!--    </RelativeLayout>-->
 
-    <RelativeLayout
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progrsmrec"
+        android:layout_centerInParent="true"
+        />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MEDICAL RECORDS"
-            android:fontFamily="@font/montserrat_bold"
-            android:layout_centerInParent="true"
-            android:textSize="@dimen/_20sdp"
-            android:id="@+id/record"/>
-        <TextView
-            android:layout_width="@dimen/_330sdp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/record"
-            android:text="Keep all your medical documents in one place and stop woorrying about losing then "
-            android:fontFamily="@font/montserrat_medium"
-            android:layout_centerInParent="true"
-            android:textSize="@dimen/_15sdp"
-            android:textAlignment="center"
-            android:id="@+id/record_line"/>
+        android:layout_below="@id/border_above"
+        android:id="@+id/refrshmrec">
 
-    </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/mrecordrview"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -116,9 +135,19 @@
                 android:paddingLeft="20dp"
                 />
 
-
         </LinearLayout>
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emptyaptxtmedrec"
+        android:text="Medical record was empty"
+        android:layout_centerInParent="true"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:fontFamily="@font/montserrat_medium"
+        />
 
 </RelativeLayout>

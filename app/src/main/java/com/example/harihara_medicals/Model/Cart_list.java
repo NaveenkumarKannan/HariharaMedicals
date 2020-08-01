@@ -1,7 +1,7 @@
 package com.example.harihara_medicals.Model;
 
 public class Cart_list {
-    String cart_tab_name,cart_tab_count,cart_tab_price;
+    String cart_tab_name,cart_tab_count,cart_tab_price,cart_id;
 
     public String getCart_tab_name() {
         return cart_tab_name;
@@ -25,5 +25,13 @@ public class Cart_list {
 
     public void setCart_tab_price(String cart_tab_price) {
         this.cart_tab_price = cart_tab_price;
+    }
+
+    public String getCart_id() {
+        return cart_id;
+    }
+
+    public void setCart_id(String cart_id) {
+        this.cart_id = cart_id;
     }
 }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">HariHara medicals</string>
+    <string name="app_name">H+</string>
     <string name="app_folder_name" translatable="false">HariHaraMedicals</string>
     <string name="title_home">Home</string>
     <string name="title_calender">Calender</string>
     <string name="title_book_Dr">Book Doctor</string>
     <string name="title_medicien">Product</string>
     <string name="title_activity_home_page">Home Page</string>
-    <string name="title_appointment">My Appoinment</string>
+    <string name="title_appointment">My Appointment</string>
     <string name="title_order">My Order</string>
     <string name="title_remainder">Remainder</string>
     <string name="title_medical_records">My Records</string>
@@ -47,5 +47,8 @@
     <string name="title_order_complete">Order Complete</string>
     <string name="what_s_on_your_mind">Enter your query</string>
     <string name="menu_refresh">Refresh</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

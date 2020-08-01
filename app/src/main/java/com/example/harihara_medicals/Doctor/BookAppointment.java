@@ -36,6 +36,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BookAppointment extends AppCompatActivity {
+
     Button book_appointment;
     TextView dr_name,dr_spc,dr_fee,dr_ex,cal_date;
     CalendarView dr_date;
@@ -53,10 +54,10 @@ public class BookAppointment extends AppCompatActivity {
         back_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 finish();
             }
         });
+
         dr_name=findViewById(R.id.book_appointment_dr_name);
         dr_spc=findViewById(R.id.book_appointment_dr_edu);
         dr_ex=findViewById(R.id.book_appointment_dr_exp);
@@ -111,8 +112,8 @@ public class BookAppointment extends AppCompatActivity {
         dr_date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                cal_date.setText(year+"-"+month+"-"+dayOfMonth);
-
+                int mn = month+1;
+                cal_date.setText(year+"-"+mn+"-"+dayOfMonth);
             }
         });
 
@@ -120,8 +121,23 @@ public class BookAppointment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d("fees", dr_fee+" "+dr_ex);
-                sendpost(did, ""+user_id, dr_name.getText().toString(), dr_spc.getText().toString(), settime.getText().toString(), cal_date.getText().toString(), Dr_fees, Dr_epx);
-                //Toast.makeText(BookAppointment.this, " "+Dr_epx+" "+Dr_fees, Toast.LENGTH_SHORT).show();
+
+                Date c = Calendar.getInstance().getTime();
+                SimpleDateFormat sf = new SimpleDateFormat("yyyy-M-dd");
+                String tdat = sf.format(c);
+
+//                if(cal_date.getText().toString().equals(tdat)){
+//                    Toast.makeText(BookAppointment.this, tdat+" equal "+cal_date.getText().toString(), Toast.LENGTH_SHORT).show();
+//                } else
+                if(cal_date.getText().toString().equals("")) {
+                    Toast.makeText(BookAppointment.this, "Choose appointment date", Toast.LENGTH_SHORT).show();
+                } else if(settime.getText().toString().equals("")) {
+                    Toast.makeText(BookAppointment.this, "choose appointment time", Toast.LENGTH_SHORT).show();
+                } else {
+                    sendpost(did, ""+user_id, dr_name.getText().toString(), dr_spc.getText().toString(), settime.getText().toString(), cal_date.getText().toString(), Dr_fees, Dr_epx);
+                }
+
+                //Toast.makeText(BookAppointment.this, tdat+" "+cal_date.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 

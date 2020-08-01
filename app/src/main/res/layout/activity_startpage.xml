@@ -11,8 +11,8 @@
         android:layout_width="@dimen/_170sdp"
         android:layout_height="@dimen/_170sdp"
         android:layout_centerInParent="true"
-        android:src="@drawable/harihara_new_logo">
-    </ImageView>
+        android:src="@drawable/h_plus"
+    />
 
     <TextView
         android:layout_centerHorizontal="true"
@@ -54,7 +54,6 @@
         android:alpha="0.70"
         android:src="@drawable/radssoon_r_black"
         android:visibility="gone"/>
-
 
     <ImageView
         android:layout_marginHorizontal="@dimen/_120sdp"

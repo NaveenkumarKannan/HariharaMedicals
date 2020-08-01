@@ -50,6 +50,8 @@
             android:layout_marginHorizontal="@dimen/_20sdp"
             android:hint="Date of Visit"
             android:maxLines="1"
+            android:clickable="true"
+            android:focusable="false"
             />
         <EditText
             android:layout_width="match_parent"
@@ -76,7 +78,7 @@
             android:inputType="text"
             android:fontFamily="@font/montserrat_medium"
             android:layout_marginHorizontal="@dimen/_20sdp"
-            android:hint="Purpose od visit"
+            android:hint="Purpose of visit"
             android:maxLines="1"
             />
         <ImageView

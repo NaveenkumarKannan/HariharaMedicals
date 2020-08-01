@@ -16,7 +16,7 @@
 
     <uses-feature
         android:name="android.hardware.camera2"
-        android:required="false"/>
+        android:required="false" />
     <uses-feature
         android:name="android.hardware.camera.ar"
         android:required="true" />
@@ -28,14 +28,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/AppThemeActionBar"/>
-        <activity android:name=".chatbot.LiveChatBot"
-            android:screenOrientation="fullSensor">
-
-        </activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".Medicine.MyRecordPreview"></activity>
+        <activity android:name=".Doctor.SearchDoctors" />
+        <activity android:name=".SearchProducts" />
+        <activity android:name=".Medicine.Order_status" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/AppThemeActionBar" />
+        <activity
+            android:name=".chatbot.LiveChatBot"
+            android:screenOrientation="fullSensor" />
         <activity android:name=".About_Harihar" />
 
         <provider
@@ -47,7 +50,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_path"
-                tools:replace="android:resource"/>
+                tools:replace="android:resource" />
         </provider>
 
         <activity android:name=".Ar_product" />
@@ -81,7 +84,6 @@
         <activity android:name=".regisration_page" />
         <activity android:name=".otp_page" />
         <activity android:name=".Loginpage" />
-
     </application>
 
 </manifest>

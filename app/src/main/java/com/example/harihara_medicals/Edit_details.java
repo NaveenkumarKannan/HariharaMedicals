@@ -282,7 +282,7 @@ public class Edit_details extends AppCompatActivity {
 
         Toast.makeText(Edit_details.this, " "+f_name+" "+l_name+" "+d_o_b+" "+g_ender, Toast.LENGTH_SHORT).show();
 
-        Call<LoginData> call = ApiUtils.getProductApi().edtUserinfo(body, f_name, l_name, d_o_b, e_mail, user_address, gen, h_eight, w_eight, sugarlevel, d_name, bp, userid);
+        Call<LoginData> call = ApiUtils.getScalarUrl().edtUserinfo(body, f_name, l_name, d_o_b, e_mail, user_address, gen, h_eight, w_eight, sugarlevel, d_name, bp, userid);
 
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading");
@@ -293,7 +293,7 @@ public class Edit_details extends AppCompatActivity {
             public void onResponse(Call<LoginData> call, Response<LoginData> response) {
                 LoginData res = response.body();
                 User user = res.getUser();
-                Toast.makeText(Edit_details.this, "Ok "+res.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Edit_details.this, "Ok "+res.getMessage()+" "+response, Toast.LENGTH_SHORT).show();
 
                 try {
                     final File file = DirManager.generateUserProfileImage();

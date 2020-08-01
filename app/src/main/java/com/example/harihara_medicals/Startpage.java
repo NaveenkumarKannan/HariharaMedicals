@@ -1,6 +1,7 @@
 package com.example.harihara_medicals;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -19,9 +20,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.karan.churi.PermissionManager.PermissionManager;
 import com.mukesh.permissions.EasyPermissions;
 import com.mukesh.permissions.OnPermissionListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Startpage extends AppCompatActivity {
@@ -29,6 +32,8 @@ public class Startpage extends AppCompatActivity {
     ImageView radssoonSymbol,aboveWhiteline,belowWhiteline;
     EasyPermissions easyPermissions;
     String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA};
+
+    PermissionManager permissionManager;
 
     @Override
     protected void onStart() {
@@ -41,19 +46,24 @@ public class Startpage extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic("Harihara_Medicals");
 
         setContentView(R.layout.activity_startpage);
-        init();
+        //init();
+
+        permissionManager = new PermissionManager(){};
+        permissionManager.checkAndRequestPermissions(this);
+
         radssoonSymbol = (ImageView) findViewById(R.id.radssoon_symbol);
         aboveWhiteline = (ImageView) findViewById(R.id.above_whiteline);
         belowWhiteline = (ImageView) findViewById(R.id.below_whiteline);
-        if (easyPermissions.hasPermission(permissions)) {
-            startAnimation();
-        } else {
-            Toast.makeText(Startpage.this, "Camera and Storage permission is needed to use this app", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                    Uri.parse("package:" + getPackageName()));
-            finish();
-            startActivity(intent);
-        }
+        startAnimation();
+//        if (easyPermissions.hasPermission(permissions)) {
+//            startAnimation();
+//        } else {
+//            Toast.makeText(Startpage.this, "Camera and Storage permission is needed to use this app", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+//                    Uri.parse("package:" + getPackageName()));
+//            finish();
+//            startActivity(intent);
+//        }
 /*        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -104,26 +114,43 @@ public class Startpage extends AppCompatActivity {
         timer.start();
     }
 
-    private void init() {
-        easyPermissions = new EasyPermissions.Builder()
-                .with(this)
-                .listener(new OnPermissionListener() {
-                    @Override
-                    public void onAllPermissionsGranted(@NonNull List<String> list) {
-                        startAnimation();
-                    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        permissionManager.checkResult(requestCode, permissions, grantResults);
 
-                    @Override
-                    public void onPermissionsGranted(@NonNull List<String> list) {
+        ArrayList<String> granted = permissionManager.getStatus().get(0).granted;
+        ArrayList<String> denied = permissionManager.getStatus().get(0).denied;
 
-                    }
+        for (String item:granted){
+            Toast.makeText(this, ""+item, Toast.LENGTH_SHORT).show();
+        }
 
-                    @Override
-                    public void onPermissionsDenied(@NonNull List<String> list) {
-                        easyPermissions.request(permissions);
-                    }
-                })
-                .build();
-        easyPermissions.request(permissions);
+        for (String item1:denied){
+            Toast.makeText(this, ""+item1, Toast.LENGTH_SHORT).show();
+        }
+
     }
+
+//    private void init() {
+//        easyPermissions = new EasyPermissions.Builder()
+//                .with(this)
+//                .listener(new OnPermissionListener() {
+//                    @Override
+//                    public void onAllPermissionsGranted(@NonNull List<String> list) {
+//                        startAnimation();
+//                    }
+//
+//                    @Override
+//                    public void onPermissionsGranted(@NonNull List<String> list) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onPermissionsDenied(@NonNull List<String> list) {
+//                        easyPermissions.request(permissions);
+//                    }
+//                })
+//                .build();
+//        easyPermissions.request(permissions);
+//    }
 }

@@ -1,7 +1,16 @@
 package com.example.harihara_medicals.Model;
 
 public class Reminder_list {
-    private   String doctor_appointment,doctor_time,medicien,medicien_time,visit_medical,visit_time;
+    private   String reminderid,doctor_appointment,doctor_time,medicien,medicien_time,visit_medical,
+            visit_time, remdate, remdesc;
+
+    public String getReminderid() {
+        return reminderid;
+    }
+
+    public void setReminderid(String reminderid) {
+        this.reminderid = reminderid;
+    }
 
     public String getDoctor_appointment() {
         return doctor_appointment;
@@ -49,5 +58,21 @@ public class Reminder_list {
 
     public void setVisit_time(String visit_time) {
         this.visit_time = visit_time;
+    }
+
+    public String getRemdate() {
+        return remdate;
+    }
+
+    public void setRemdate(String remdate) {
+        this.remdate = remdate;
+    }
+
+    public String getRemdesc() {
+        return remdesc;
+    }
+
+    public void setRemdesc(String remdesc) {
+        this.remdesc = remdesc;
     }
 }

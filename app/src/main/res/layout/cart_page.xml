@@ -2,17 +2,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/border_above"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="#808080"
+        android:layout_height="55dp"
+        android:clickable="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:id="@+id/back_icon"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:fontFamily="font/verdana.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:id="@+id/title"
+            android:text="My cart"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/border_above">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:background="#808080"
-        android:id="@+id/cart_nav"/>
+            android:layout_height="match_parent"
+            android:id="@+id/cartlayout"
+            >
+
     <TextView
         android:id="@+id/cart_item"
         android:layout_width="wrap_content"
@@ -60,8 +89,8 @@
                 android:layout_marginLeft="@dimen/_210sdp"
                 android:layout_marginTop="@dimen/_10sdp"/>
             <View
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="@dimen/_3sdp"
+                android:layout_width="280dp"
+                android:layout_height="1.5dp"
                 android:layout_below="@id/cart_detail_price"
                 android:layout_centerInParent="true"
                 android:background="#808080"/>
@@ -100,4 +129,35 @@
         android:layout_marginBottom="@dimen/_10sdp"/>
         </RelativeLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/emtycartlayout"
+        android:layout_below="@id/border_above"
+        android:visibility="gone"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_shopping_cart_black_24dp"
+            android:background="#808080"
+            android:id="@+id/emtyimg"
+            android:layout_centerInParent="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emptyaptxt"
+            android:text="Your cart is empty"
+            android:textSize="18sp"
+            android:layout_below="@id/emtyimg"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat_medium"
+            />
+
+    </RelativeLayout>
+
 </RelativeLayout>

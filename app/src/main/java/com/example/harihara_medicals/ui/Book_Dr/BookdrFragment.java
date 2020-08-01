@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,13 +17,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import com.example.harihara_medicals.Doctor.General_doctor;
+import com.example.harihara_medicals.Doctor.SearchDoctors;
 import com.example.harihara_medicals.R;
 import com.example.harihara_medicals.Retrofit.ApiUtils;
 import com.example.harihara_medicals.Retrofit.ProductApi;
+import com.thekhaeng.pushdownanim.PushDownAnim;
 
 public class BookdrFragment extends Fragment {
 
     Button btn_general,btn_skin,btn_child,btn_women_health,btn_homeopathy,btn_ayrveda;
+    EditText dctsearch;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +38,16 @@ public class BookdrFragment extends Fragment {
         btn_women_health = root.findViewById(R.id.product_btn_women_health);
         btn_homeopathy = root.findViewById(R.id.product_btn_homeopathy);
         btn_ayrveda = root.findViewById(R.id.product_btn_Ayrvedic);
+        dctsearch = root.findViewById(R.id.dctr_search);
+
+        PushDownAnim.setPushDownAnimTo(dctsearch)
+        .setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick( View view ){
+                Intent intent = new Intent(getActivity(), SearchDoctors.class);
+                startActivity(intent);
+            }
+        } );
 
         btn_general.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,5 +1,6 @@
 package com.example.harihara_medicals;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,11 +30,13 @@ import com.example.harihara_medicals.utils.Util;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.Gson;
+import com.karan.churi.PermissionManager.PermissionManager;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewCallback;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 import com.mukesh.permissions.EasyPermissions;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import static com.example.harihara_medicals.utils.Util.log;
 
@@ -45,6 +48,8 @@ public class Loginpage extends AppCompatActivity {
     private  String verificationcode;
     String phonenumber;*/
     FirebaseUser user;
+
+    PermissionManager permissionManager;
 
     @Override
     protected void onStart() {
@@ -66,8 +71,13 @@ public class Loginpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
+
+        permissionManager = new PermissionManager(){};
+        permissionManager.checkAndRequestPermissions(this);
+
         edit_phone = findViewById(R.id.edt);
         Button getotp = findViewById(R.id.getotpbtn);
+
         getotp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +96,22 @@ public class Loginpage extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        permissionManager.checkResult(requestCode, permissions, grantResults);
+
+        ArrayList<String> granted = permissionManager.getStatus().get(0).granted;
+        ArrayList<String> denied = permissionManager.getStatus().get(0).denied;
+
+        for (String item:granted){
+            Toast.makeText(this, ""+item, Toast.LENGTH_SHORT).show();
+        }
+
+        for (String item1:denied){
+            Toast.makeText(this, ""+item1, Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
     private void signInUser() {
         Call<LoginData> call = ApiUtils.getProductApi().checkLogin(FireManager.getUid());
@@ -157,4 +183,5 @@ public class Loginpage extends AppCompatActivity {
     public void onBackPressed() {
         Util.onBack(this);
     }
+
 }

@@ -13,7 +13,7 @@ public class MyApp extends Application {
         super.onCreate();
         SharedPreferencesManager.init(this);
         AutoErrorReporter.get(this)
-                .setEmailAddresses("naveenkumar@radssoon.com")
+                .setEmailAddresses("santhoshkumar@radssoon.com")
                 .setEmailSubject("Auto Crash Report")
                 .start();
         mApp = this;

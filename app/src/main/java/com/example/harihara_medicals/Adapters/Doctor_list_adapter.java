@@ -106,6 +106,11 @@ public class Doctor_list_adapter extends RecyclerView.Adapter<Doctor_list_adapte
         return doctor_listArrayList.size();
     }
 
+    public void filterlist(ArrayList<Doctor_list> listArrayList) {
+        doctor_listArrayList = listArrayList;
+        notifyDataSetChanged();
+    }
+
     class MyViewHolder extends RecyclerView.ViewHolder{
         TextView Dr__name,Dr_qu,Dr_num,Dr_fees,Dr_exp,Dr_spe;
         Button call_dr,book_dr;

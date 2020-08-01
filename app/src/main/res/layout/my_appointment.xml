@@ -34,14 +34,52 @@
             android:textColor="@android:color/white" />
 
     </RelativeLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
+    
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/my_appointment_recy"
+        android:layout_below="@id/border_above"
+        android:id="@+id/rellayout">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/swiperefmyapts">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/my_appointment_recy"
+                />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBarmyapp"
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/emptyaply"
+        android:visibility="gone"
         android:layout_below="@id/border_above">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emptyaptxt"
+            android:text="Your appointment was empty"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_medium"
+            />
 
+    </RelativeLayout>
 
 </RelativeLayout>

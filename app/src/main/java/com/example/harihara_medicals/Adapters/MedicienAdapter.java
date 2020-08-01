@@ -19,15 +19,15 @@ import com.example.harihara_medicals.R;
 import java.util.ArrayList;
 
 public class MedicienAdapter extends RecyclerView.Adapter<MedicienAdapter.ViewHolder> {
+
     private LayoutInflater inflater;
     public ArrayList<Medicien_list> medicienlistArrayList;
     private static OnClickListener onClickListener;
+
     public MedicienAdapter( Context mctx,ArrayList<Medicien_list> medicienlistArrayList){
         inflater=LayoutInflater.from(mctx);
         this.medicienlistArrayList=medicienlistArrayList;
     }
-
-
 
     @Override
     public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
@@ -105,6 +105,11 @@ public class MedicienAdapter extends RecyclerView.Adapter<MedicienAdapter.ViewHo
     @Override
     public int getItemCount() {
         return medicienlistArrayList.size();
+    }
+
+    public void filterlist(ArrayList<Medicien_list> listArrayList) {
+        medicienlistArrayList = listArrayList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

@@ -16,6 +16,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.harihara_medicals.Adapters.Doctor_list_adapter;
 import com.example.harihara_medicals.Model.Doctor_list;
@@ -40,6 +41,7 @@ public class General_doctor extends AppCompatActivity {
     ImageView back_icon;
     TextView spc_title;
     String spc;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -50,6 +52,7 @@ public class General_doctor extends AppCompatActivity {
         recyclerView=findViewById(R.id.doctor_list_view);
         back_icon = findViewById(R.id.back_icon);
         spc_title = findViewById(R.id.signup_title);
+        swipeRefreshLayout = findViewById(R.id.swiperefdcts);
 
         Intent intent = getIntent();
         String spcl = intent.getExtras().getString("spe");
@@ -90,7 +93,13 @@ public class General_doctor extends AppCompatActivity {
             }
         });
 
-
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getResponse(spcl);
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         getResponse(spcl);
 

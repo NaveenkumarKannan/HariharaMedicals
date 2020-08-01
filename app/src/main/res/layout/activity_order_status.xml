@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Medicine.Order_status">
+
+    <RelativeLayout
+        android:id="@+id/border_above"
+        android:layout_width="match_parent"
+        android:background="#808080"
+        android:layout_height="55dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:id="@+id/back_icon"
+            />
+
+        <TextView
+            android:fontFamily="font/verdana.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order status"
+            android:textSize="18sp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:id="@+id/titletxt"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+    <com.baoyachi.stepview.VerticalStepView
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_below="@id/border_above"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/orderstatus"
+        />
+
+</RelativeLayout>
